@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>HEXO 快速搭建 | Cai7n 蔡柒&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051    # 安装HEXO	# 1. crul下载安装NVM(node version mene)curl https://raw.github.com/creationix/nvm/v0.33.11/install">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXO 快速搭建">
+<meta property="og:url" content="http://yoursite.com/2019/02/26/【hexo】hexo快速搭建/index.html">
+<meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051    # 安装HEXO	# 1. crul下载安装NVM(node version mene)curl https://raw.github.com/creationix/nvm/v0.33.11/install">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-26T13:10:41.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HEXO 快速搭建">
+<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051    # 安装HEXO	# 1. crul下载安装NVM(node version mene)curl https://raw.github.com/creationix/nvm/v0.33.11/install">
+  
+    <link rel="alternate" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cai7n 蔡柒&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-【hexo】hexo快速搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/26/【hexo】hexo快速搭建/" class="article-date">
+  <time datetime="2019-02-26T12:32:21.336Z" itemprop="datePublished">2019-02-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HEXO 快速搭建
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">  # 安装HEXO</span><br><span class="line"></span><br><span class="line">	# 1. crul下载安装NVM(node version mene)</span><br><span class="line"></span><br><span class="line">curl https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh</span><br><span class="line"></span><br><span class="line">	# 2. 用NVM安装node.js</span><br><span class="line"></span><br><span class="line">nvm install stable</span><br><span class="line"></span><br><span class="line">	# 3. 用node.js中的npm安装hexo</span><br><span class="line"></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	# 注：如果npm安装hexo卡住，切换node.js源</span><br><span class="line"></span><br><span class="line">		# 切换到 cnpmjs</span><br><span class="line"></span><br><span class="line">npm config set registry http://registry.cnpmjs.org</span><br><span class="line"></span><br><span class="line">		# 如果有返回，即切换成功</span><br><span class="line"></span><br><span class="line">npm info underscore</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  # 使用HEXO生成静态网页</span><br><span class="line">	</span><br><span class="line">	# 1. HEXO NPM 初始化目录环境</span><br><span class="line"></span><br><span class="line">hexo init cai7n.github.io</span><br><span class="line">cd cai7n.github.io</span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	# 2. 修改根目录下的_config.yml设置网站基本信息</span><br><span class="line"></span><br><span class="line">	# 3. 新增文章在/source/_post</span><br><span class="line"></span><br><span class="line">hexo new HEXO.md</span><br><span class="line">cd source/_post</span><br><span class="line">vi HEXO.md</span><br><span class="line"></span><br><span class="line">	# 4. 生成静态网页到/public</span><br><span class="line"></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line">	# *5. 启动HEXO，预览</span><br><span class="line"></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/26/【hexo】hexo快速搭建/" data-id="cjslu2ca50001zo9jvvtxkhqu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/26/【hexo】hexo配置&功能/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hexo 配置 功能
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/26/【git】git命令即查/">【git】git命令即查</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/【hexo】hexo配置&功能/">hexo 配置 功能</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/【hexo】hexo快速搭建/">HEXO 快速搭建</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

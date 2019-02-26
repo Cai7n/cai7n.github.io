@@ -62,56 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-private/【暂存】【转】javac 生成class 的nutz兼容问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/26/private/【暂存】【转】javac 生成class 的nutz兼容问题/" class="article-date">
-  <time datetime="2019-02-26T12:40:27.118Z" itemprop="datePublished">2019-02-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/26/private/【暂存】【转】javac 生成class 的nutz兼容问题/">【转】javac 生成class 的nutz兼容问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>用eclipse调试程序时，有时会碰到打上断点后，无法看到变量真实名称，改而是arg0、arg1这类无意义的。参看以下代码：</p>
-<blockquote>
-<p>private Test  fn(String s){<br> String y=”123”;<br> System.out.println(“123”);<br> return null;<br> }</p>
-</blockquote>
-<p>通过javap查看编译后的字节码</p>
-<blockquote>
-<p>private Test fn(java.lang.String);<br> Code:<br> Stack=2, Locals=3, Args_size=2<br> 0:   ldc #35; //String 123<br> 2:   astore_2<br> 3:   getstatic   #37; //Field java/lang/System.out:Ljava/io/PrintStream;<br> 6:   ldc #35; //String 123<br> 8:   invokevirtual   #43; //Method java/io/PrintStream.println:(Ljava/lang/String;)V<br> 11:  aconst_null<br> 12:  areturn<br> LineNumberTable:<br> line 11: 0<br> line 12: 3<br> line 13: 11<br> LocalVariableTable:<br> Start  Length  Slot  Name   Signature<br> 0      13      0    this       LTest;<br> 0      13      1    s       Ljava/lang/String;<br> 3      10      2    y       Ljava/lang/String;<br> }</p>
-</blockquote>
-<p>在最后的LocalVariableTable一栏中，明显看到Name对应的一栏，有参数名及局部变量名。<br> 但如果不用eclipse，直接在命令行里通过javac编译，会发现LocalVariableTable是空的。一般为了效率，正式发包的jar包是不含这一栏的，因此在调试此类代码时，就只能看到arg0之类的变量。</p>
-<p>还有一种情况，若代码（往往是第三方包）依赖了LocalVariableTable，则可能引起问题。以nutz的@Param为例，当Module层里的@At接口没有声明@Param时，此时其会读取对应class文件的LocalVariableTable，试图从class文件中得到参数名，以便对应为前提提交的参数名。eclipse下默认编译带LocalVariableTable，因此不写@Param可行，但通过javac编译时，会出现参数无法接收的情况。</p>
-<p>作者：nutz</p>
-<p>链接：<a href="https://www.jianshu.com/p/876eaa14a0a9" target="_blank" rel="noopener">https://www.jianshu.com/p/876eaa14a0a9</a></p>
-<p>来源：简书</p>
-<p>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/26/private/【暂存】【转】javac 生成class 的nutz兼容问题/" data-id="cjslri43m0000ks9jiqiv5093" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-【hexo】hexo 快速搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/02/26/【hexo】hexo 快速搭建/" class="article-date">
@@ -178,10 +128,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2019/02/26/private/【暂存】【转】javac 生成class 的nutz兼容问题/">【转】javac 生成class 的nutz兼容问题</a>
-          </li>
         
           <li>
             <a href="/2019/02/26/【hexo】hexo 快速搭建/">HEXO 快速搭建</a>

@@ -7,16 +7,19 @@
   
   <title>【git】git命令即查 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="基本流程命令图 功能分类1234567891011121314151617181920# 命令缩写在config文件（git/mingw64/etc）下追加[alias]	st = status	a = add	b = branch	c = commit 	ca = commit -a		# 拷贝远程一个项目git clone http://user@1.1.1.1/ex.git# 本地未git或">
+<meta property="og:type" content="article">
 <meta property="og:title" content="【git】git命令即查">
 <meta property="og:url" content="http://yoursite.com/2019/02/26/【git】git命令即查/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
+<meta property="og:description" content="基本流程命令图 功能分类1234567891011121314151617181920# 命令缩写在config文件（git/mingw64/etc）下追加[alias]	st = status	a = add	b = branch	c = commit 	ca = commit -a		# 拷贝远程一个项目git clone http://user@1.1.1.1/ex.git# 本地未git或">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/02/26/【git】git命令即查/timg.jpg">
-<meta property="og:updated_time" content="2019-02-26T13:54:58.468Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/26/【git】git命令即查/1.png">
+<meta property="og:updated_time" content="2019-02-26T14:55:05.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【git】git命令即查">
-<meta name="twitter:image" content="http://yoursite.com/2019/02/26/【git】git命令即查/timg.jpg">
+<meta name="twitter:description" content="基本流程命令图 功能分类1234567891011121314151617181920# 命令缩写在config文件（git/mingw64/etc）下追加[alias]	st = status	a = add	b = branch	c = commit 	ca = commit -a		# 拷贝远程一个项目git clone http://user@1.1.1.1/ex.git# 本地未git或">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/26/【git】git命令即查/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -69,6 +72,10 @@
   <time datetime="2019-02-26T13:53:32.000Z" itemprop="datePublished">2019-02-26</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -85,7 +92,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="/2019/02/26/【git】git命令即查/timg.jpg" alt></p>
+        <h3 id="基本流程命令图"><a href="#基本流程命令图" class="headerlink" title="基本流程命令图"></a>基本流程命令图</h3><p><img src="/2019/02/26/【git】git命令即查/1.png" alt></p>
+<h3 id="功能分类"><a href="#功能分类" class="headerlink" title="功能分类"></a>功能分类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 命令缩写</span><br><span class="line">在config文件（git/mingw64/etc）下追加</span><br><span class="line">[alias]</span><br><span class="line">	st = status</span><br><span class="line">	a = add</span><br><span class="line">	b = branch</span><br><span class="line">	c = commit </span><br><span class="line">	ca = commit -a</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"># 拷贝远程一个项目</span><br><span class="line">git clone http://user@1.1.1.1/ex.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 本地未git或git路径不同的项目提交覆盖到指定git，常见于之前项目拷贝多份后指定某个版本为最终版本，或先前提交到远程的仅仅是空白上传的项目</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#　检查在哪忽略了某文件</span><br><span class="line">$ git check-ignore -v App.class</span><br></pre></td></tr></table></figure>
+<h3 id="分类命令"><a href="#分类命令" class="headerlink" title="分类命令"></a>分类命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># commit</span><br><span class="line">git commit -m &apos;&apos;</span><br><span class="line">git commit -a -m 		# 省略已有文件更改后的git add -u</span><br><span class="line"></span><br><span class="line"># remote </span><br><span class="line">git remote -v</span><br><span class="line">git remote add origin http://...</span><br><span class="line">git remote remove origin</span><br><span class="line"></span><br><span class="line"># push</span><br><span class="line">git push</span><br><span class="line">git push -u origin master	# -u 指定默认remote为origin，下次可省</span><br></pre></td></tr></table></figure>
+<h3 id="ignore文件规则"><a href="#ignore文件规则" class="headerlink" title="ignore文件规则"></a>ignore文件规则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#floder文件或文件夹</span><br><span class="line">floder 			</span><br><span class="line"></span><br><span class="line"># floder文件夹</span><br><span class="line">floder/ 		</span><br><span class="line"></span><br><span class="line"># 仅floder文件</span><br><span class="line">floder</span><br><span class="line">!floder/	</span><br><span class="line"></span><br><span class="line"># 根目录下的floder，其他目录下的floder不受影响</span><br><span class="line">/floder			</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#　检查代码哪里忽略了某文件</span><br><span class="line">$ git check-ignore -v App.class</span><br></pre></td></tr></table></figure>
+<h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># diff 原理</span><br><span class="line">diff 使用的是Unix中的合并diff，用到的算法是动态规划里的最长子序列。</span><br><span class="line"></span><br><span class="line"># diff 出现^M</span><br><span class="line">git config --global core.whitespace cr-at-eol</span><br><span class="line">core.whitespace 探测和修改空白问题，其4种抓选项中的2个默认被打开，另2个被关闭</span><br><span class="line">默认被打开的2个选项是trailing-space和space-before-tab    trailinig-space会查找每行结尾的空格，  space-before-tab 会查找每行开头的制表符前的空格</span><br><span class="line">默认被关闭的2个选项是indent-with-non-tab和cr-at-eol    indent-with-non-tab会查找8个以上空格(非制表符)开头的行， cr-at-eol 让Git指定行尾回车符是合法的</span><br><span class="line"></span><br><span class="line"># 三路合并</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -102,7 +113,7 @@
   
     <a href="/2019/02/26/【hexo】hexo配置&功能/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">hexo 配置 功能</div>
+      <div class="article-nav-title">【hexo】hexo配置功能</div>
     </a>
   
 </nav>
@@ -118,7 +129,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li></ul>
     </div>
   </div>
 
@@ -150,11 +161,11 @@
           </li>
         
           <li>
-            <a href="/2019/02/26/【hexo】hexo配置&功能/">hexo 配置 功能</a>
+            <a href="/2019/02/26/【hexo】hexo配置&功能/">【hexo】hexo配置功能</a>
           </li>
         
           <li>
-            <a href="/2019/02/26/【hexo】hexo快速搭建/">HEXO 快速搭建</a>
+            <a href="/2019/02/26/【hexo】hexo快速搭建/">【hexo】HEXO快速搭建</a>
           </li>
         
       </ul>

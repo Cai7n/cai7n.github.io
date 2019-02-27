@@ -62,6 +62,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-【基础】浮点数精确度探索" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/27/【基础】浮点数精确度探索/" class="article-date">
+  <time datetime="2019-02-27T12:59:17.000Z" itemprop="datePublished">2019-02-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/基础/">基础</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/27/【基础】浮点数精确度探索/">【基础】浮点数精确度探索</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####　大小端模式（便于理解数据在内存具体表示）</p>
+<p>非单字节非字符串外的其余数据，在内存中<strong>字节</strong>的排序。</p>
+<p>例：41715 = A2 F3，大端：A2 F3，小端：F3 A2；</p>
+<p>例：数组{1,2}，小端：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 二进制内存中表示</span><br><span class="line">00 	: 0000 0001 - 1byte</span><br><span class="line">01	: 0000 0000</span><br><span class="line">	: 0000 0000</span><br><span class="line">	: 0000 0000</span><br><span class="line">04	: 0000 0002</span><br><span class="line">	: 0000 0000</span><br><span class="line">	: 0000 0000</span><br><span class="line">	: 0000 0000</span><br></pre></td></tr></table></figure>
+<p>场合：在网络编程和一些服务器中采用的是大端的字节序，而一般的主机采用的是小端的字节序。</p>
+<p>优劣：大端存储因为第一个字节就是高位，从而很容易知道它是正数还是负数，对于一些数值判断会很迅速。而小端存储 第一个字节是它的低位，符号位在最后一个字节，这样在做数值四则运算时从低位每次取出相应字节运算，最后直到高位，并且最终把符号位刷新，这样的运算方式会更高效。</p>
+<blockquote>
+<p>参考</p>
+<p>【知乎】大小端字节序存在的意义，为什么不用一个标准呢？</p>
+<p><a href="https://www.zhihu.com/question/25311159/answer/33589698" target="_blank" rel="noopener">https://www.zhihu.com/question/25311159/answer/33589698</a></p>
+</blockquote>
+<h4 id="32位编译器和64位编译器"><a href="#32位编译器和64位编译器" class="headerlink" title="32位编译器和64位编译器"></a>32位编译器和64位编译器</h4><p>编译器是将可读的源代码编译成机器读的机器码。32位和64位表示在编译成机器码上对内存的表示位数。</p>
+<p>cpu访问内存的最小单位位1byte。32位编译器中一个32位的一个二进制数指针指向某1byte，内存范围从0x00 00 00 00 到 0xff ff ff ff个byte，不到4g byte。</p>
+<p>例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 32位</span><br><span class="line">地址			：内容</span><br><span class="line">00 00 00 00	  : 11 01 01 00 - 1byte</span><br><span class="line">00 00 00 01   : 00 11 11 01</span><br></pre></td></tr></table></figure>
+<h4 id="十进制二进制互转公式，带小数点（理解有限十进制小数到二进制会出现无限二进制）"><a href="#十进制二进制互转公式，带小数点（理解有限十进制小数到二进制会出现无限二进制）" class="headerlink" title="十进制二进制互转公式，带小数点（理解有限十进制小数到二进制会出现无限二进制）"></a>十进制二进制互转公式，带小数点（理解有限十进制小数到二进制会出现无限二进制）</h4><p>二进制到十进制：</p>
+<p>11.11B = 2^1+2^0+2^-1+2^-2 = 3.75D</p>
+<p>十进制到二进制：</p>
+<p>3.75D  </p>
+<p>整数部分除2取余 = 11，小数部分乘2取整 = 11，等于11.11B</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">乘2得10B说明原数是1B，乘2^1得1B说明原数是0.1B，乘2^2得1B说明原数0.01B</span><br><span class="line">0.75D=0.5D+0.25D=0.1B+0.01B=0.11B，如果0.6D=0.5D+0.1D这0.1D就无法用有限位表示了</span><br></pre></td></tr></table></figure>
+<h4 id="纯粹计算机十进制和二进制值的运算（理解运算是否会导致数据失真）"><a href="#纯粹计算机十进制和二进制值的运算（理解运算是否会导致数据失真）" class="headerlink" title="纯粹计算机十进制和二进制值的运算（理解运算是否会导致数据失真）"></a>纯粹计算机十进制和二进制值的运算（理解运算是否会导致数据失真）</h4><p>乘法：</p>
+<p>11B <em> 101B (= 3D </em> 5D)</p>
+<p>和十进制一样，从低到高的位上的1让另外一个数进相应的位数，如10让1进到10;</p>
+<p>11*(100+1) = 1100+11 = 1111B = 15D</p>
+<p>除法：（相应位数补齐相除得到1或0，然后把小数点加上）</p>
+<p>11011 / 11 = 1001</p>
+<p>11011 / 10 = 1101.1</p>
+<p>1101.1 / 111 = 1.111011011… (13.5/7=1.9285714285714)</p>
+<p>总结：无限位失真的乘法还是无限位（精度和原数损失相当？）。有限位的除法和十进制一样也会产生无限位（对大的除数111111和小的除数0.00000001的除法精度的损失似乎也相当？）。</p>
+<h4 id="浮点数在计算机中的格式和损失（计算机通过何种计算方式从二进制转到这种固定格式？这种格式下的计算原理-）"><a href="#浮点数在计算机中的格式和损失（计算机通过何种计算方式从二进制转到这种固定格式？这种格式下的计算原理-）" class="headerlink" title="浮点数在计算机中的格式和损失（计算机通过何种计算方式从二进制转到这种固定格式？这种格式下的计算原理?）"></a>浮点数在计算机中的格式和损失（计算机通过何种计算方式从二进制转到这种固定格式？这种格式下的计算原理?）</h4><h5 id="32位浮点数"><a href="#32位浮点数" class="headerlink" title="32位浮点数"></a>32位浮点数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1位符号位  |  8位指数位      | 23位有效位</span><br><span class="line">31       |  30 29 …… 23  | 22 21 …… 0</span><br><span class="line"></span><br><span class="line">0.001B</span><br><span class="line">= 1 * 2^-3</span><br><span class="line">符号位0，有效位省略整数位的1得到23个0，指数位-3</span><br><span class="line"></span><br><span class="line">11.001</span><br><span class="line">= 1.1001 * 2^1</span><br><span class="line">符号位0，有效位100100…0，指数1</span><br></pre></td></tr></table></figure>
+<h5 id="64位浮点数"><a href="#64位浮点数" class="headerlink" title="64位浮点数"></a>64位浮点数</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1位符号位  |  11位指数位  | 52位有效位</span><br><span class="line">63        |62 …… 52    | 51 …… 0</span><br></pre></td></tr></table></figure>
+<p>要点（相对32位的浮点数）：</p>
+<ul>
+<li><p>最大<strong>安全数</strong>是23位有效位都为1，加上默认的1，共24个1，值等于2^-1=16,777,215。</p>
+</li>
+<li><p>指数位：指数部分要允许小数，如果有符号位，正负各2^7，这里按照特殊的规则，指数值要减去127，64位的指数减去1023。</p>
+</li>
+<li><p>指数位：1111 1111表示极大值；0000 0000 表示极小值，甚至原来有效位中默认的省略的1也默认置为0；</p>
+</li>
+<li><p>x=0.1; 0.1为无限循环数，非准确值，x如何得到准确的0.1，到取出也得0.1</p>
+<ul>
+<li>标准中规定尾数f的固定长度是52位，再加上省略的一位，这53位是JS精度范围。它最大可以表示2^53(9007199254740992), 长度是 16，所以可以使用 toPrecision(16) 来做精度运算，超过的精度会自动做凑整处理</li>
+<li><p>0.10000000000000000555.toPrecision(16)</p>
+</li>
+<li><p>// 返回 0.1000000000000000，去掉末尾的零后正好为 0.1</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>参考</p>
+<p>【阮一峰】浮点数的二进制表示</p>
+<p><a href="http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html</a></p>
+<p>0.1 + 0.2不等于0.3？为什么JavaScript有这种“骚”操作？</p>
+<p><a href="https://www.qdskill.com/javascript/8542.html" target="_blank" rel="noopener">https://www.qdskill.com/javascript/8542.html</a></p>
+</blockquote>
+<h4 id="浮点数较安全使用方式"><a href="#浮点数较安全使用方式" class="headerlink" title="浮点数较安全使用方式"></a>浮点数较安全使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">直接使用小数，使用 toPrecision 凑整并 parseFloat 转成数字后再显示。</span><br><span class="line">parseFloat(1.4000000000000001.toPrecision(12)) === 1.4 // True </span><br><span class="line">封装成方法如下：</span><br><span class="line">function strip(num, precision = 12) &#123; </span><br><span class="line">  return +parseFloat(num.toPrecision(precision)); </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">数据运算类（把小数转成整数后再运算）</span><br><span class="line">function add(num1, num2) &#123;</span><br><span class="line">  const num1Digits = (num1.toString().split(&apos;.&apos;)[1] || &apos;&apos;).length; </span><br><span class="line">  const num2Digits = (num2.toString().split(&apos;.&apos;)[1] || &apos;&apos;).length; </span><br><span class="line">  const baseNum = Math.pow(10, Math.max(num1Digits, num2Digits)); </span><br><span class="line">  return (num1 * baseNum + num2 * baseNum) / baseNum; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/27/【基础】浮点数精确度探索/" data-id="cjsnapt510004i89jes1nc9h7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-【git】git命令即查" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/02/26/【git】git命令即查/" class="article-date">
@@ -89,15 +187,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="基本流程命令图"><a href="#基本流程命令图" class="headerlink" title="基本流程命令图"></a>基本流程命令图</h3><p><img src="/2019/02/26/【git】git命令即查/1.png" alt></p>
-<h3 id="功能分类"><a href="#功能分类" class="headerlink" title="功能分类"></a>功能分类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 命令缩写</span><br><span class="line">在config文件（git/mingw64/etc）下追加</span><br><span class="line">[alias]</span><br><span class="line">	st = status</span><br><span class="line">	a = add</span><br><span class="line">	b = branch</span><br><span class="line">	c = commit </span><br><span class="line">	ca = commit -a</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"># 拷贝远程一个项目</span><br><span class="line">git clone http://user@1.1.1.1/ex.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 本地未git或git路径不同的项目提交覆盖到指定git，常见于之前项目拷贝多份后指定某个版本为最终版本，或先前提交到远程的仅仅是空白上传的项目</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#　检查在哪忽略了某文件</span><br><span class="line">$ git check-ignore -v App.class</span><br></pre></td></tr></table></figure>
-<h3 id="分类命令"><a href="#分类命令" class="headerlink" title="分类命令"></a>分类命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># commit</span><br><span class="line">git commit -m &apos;&apos;</span><br><span class="line">git commit -a -m 		# 省略已有文件更改后的git add -u</span><br><span class="line"></span><br><span class="line"># remote </span><br><span class="line">git remote -v</span><br><span class="line">git remote add origin http://...</span><br><span class="line">git remote remove origin</span><br><span class="line"></span><br><span class="line"># push</span><br><span class="line">git push</span><br><span class="line">git push -u origin master	# -u 指定默认remote为origin，下次可省</span><br></pre></td></tr></table></figure>
+<h3 id="按功能分类"><a href="#按功能分类" class="headerlink" title="按功能分类"></a>按功能分类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 命令缩写</span><br><span class="line">在config文件（git/mingw64/etc）下追加</span><br><span class="line">[alias]</span><br><span class="line">	st = status</span><br><span class="line">	a = add</span><br><span class="line">	b = branch</span><br><span class="line">	c = commit </span><br><span class="line">	ca = commit -a</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"># 拷贝远程一个项目</span><br><span class="line">git clone http://user@1.1.1.1/ex.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 本地未git或git路径不同的项目提交覆盖到指定git，常见于之前项目拷贝多份后指定某个版本为最终版本，或先前提交到远程的仅仅是空白上传的项目</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#　检查在哪忽略了某文件</span><br><span class="line">$ git check-ignore -v App.class</span><br></pre></td></tr></table></figure>
+<h3 id="按命令分类"><a href="#按命令分类" class="headerlink" title="按命令分类"></a>按命令分类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># commit</span><br><span class="line">git commit -m &apos;&apos;</span><br><span class="line">git commit -a -m 		# 省略已有文件更改后的git add -u</span><br><span class="line"></span><br><span class="line"># remote </span><br><span class="line">git remote -v</span><br><span class="line">git remote add origin http://...</span><br><span class="line">git remote remove origin</span><br><span class="line"></span><br><span class="line"># push</span><br><span class="line">git push</span><br><span class="line">git push -u origin master	# -u 指定默认remote为origin，下次可省</span><br></pre></td></tr></table></figure>
 <h3 id="ignore文件规则"><a href="#ignore文件规则" class="headerlink" title="ignore文件规则"></a>ignore文件规则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#floder文件或文件夹</span><br><span class="line">floder 			</span><br><span class="line"></span><br><span class="line"># floder文件夹</span><br><span class="line">floder/ 		</span><br><span class="line"></span><br><span class="line"># 仅floder文件</span><br><span class="line">floder</span><br><span class="line">!floder/	</span><br><span class="line"></span><br><span class="line"># 根目录下的floder，其他目录下的floder不受影响</span><br><span class="line">/floder			</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#　检查代码哪里忽略了某文件</span><br><span class="line">$ git check-ignore -v App.class</span><br></pre></td></tr></table></figure>
 <h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># diff 原理</span><br><span class="line">diff 使用的是Unix中的合并diff，用到的算法是动态规划里的最长子序列。</span><br><span class="line"></span><br><span class="line"># diff 出现^M</span><br><span class="line">git config --global core.whitespace cr-at-eol</span><br><span class="line">core.whitespace 探测和修改空白问题，其4种抓选项中的2个默认被打开，另2个被关闭</span><br><span class="line">默认被打开的2个选项是trailing-space和space-before-tab    trailinig-space会查找每行结尾的空格，  space-before-tab 会查找每行开头的制表符前的空格</span><br><span class="line">默认被关闭的2个选项是indent-with-non-tab和cr-at-eol    indent-with-non-tab会查找8个以上空格(非制表符)开头的行， cr-at-eol 让Git指定行尾回车符是合法的</span><br><span class="line"></span><br><span class="line"># 三路合并</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/26/【git】git命令即查/" data-id="cjslu2c9v0000zo9jjj7bdh9i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/26/【git】git命令即查/" data-id="cjsnapt4c0000i89jarlp8rol" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/26/【hexo】hexo配置&功能/" data-id="cjslu2ca90002zo9jzpxce8qi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/26/【hexo】hexo配置&功能/" data-id="cjsnapt4z0003i89jgosbs5lz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -183,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/02/26/【hexo】hexo快速搭建/" data-id="cjslu2ca50001zo9jvvtxkhqu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/02/26/【hexo】hexo快速搭建/" data-id="cjsnapt4n0001i89jotchqb0c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -203,7 +301,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础/">基础</a></li></ul>
     </div>
   </div>
 
@@ -229,6 +327,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/02/27/【基础】浮点数精确度探索/">【基础】浮点数精确度探索</a>
+          </li>
         
           <li>
             <a href="/2019/02/26/【git】git命令即查/">【git】git命令即查</a>

@@ -5,15 +5,19 @@
   
 
   
-  <title>Archives: 2019 | Cai7n 蔡柒&#39;s Blog</title>
+  <title>【jvm】疑问 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="public class 中不能用class，只能static class是为了防止类相互引用吗？ 12345678910111213public class Parent&amp;#123;    class Child()    &amp;#123;            &amp;#125;        public void main(String[] args)    &amp;#123;        Child">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【jvm】疑问">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/【root】疑问/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
+<meta property="og:description" content="public class 中不能用class，只能static class是为了防止类相互引用吗？ 12345678910111213public class Parent&amp;#123;    class Child()    &amp;#123;            &amp;#125;        public void main(String[] args)    &amp;#123;        Child">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-02T11:59:37.192Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cai7n 蔡柒&#39;s Blog">
+<meta name="twitter:title" content="【jvm】疑问">
+<meta name="twitter:description" content="public class 中不能用class，只能static class是为了防止类相互引用吗？ 12345678910111213public class Parent&amp;#123;    class Child()    &amp;#123;            &amp;#125;        public void main(String[] args)    &amp;#123;        Child">
   
     <link rel="alternate" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -60,154 +64,58 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/27/【root】疑问/" class="archive-article-date">
-  <time datetime="2019-02-27T15:24:51.000Z" itemprop="datePublished">Feb 27</time>
+        <section id="main"><article id="post-【root】疑问" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/27/【root】疑问/" class="article-date">
+  <time datetime="2019-02-27T15:24:51.000Z" itemprop="datePublished">2019-02-27</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/root/">root</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/27/【root】疑问/">【jvm】疑问</a>
+    <h1 class="article-title" itemprop="name">
+      【jvm】疑问
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/27/【jre】线程/" class="archive-article-date">
-  <time datetime="2019-02-27T14:52:20.000Z" itemprop="datePublished">Feb 27</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/27/【jre】线程/">【jre】线程</a>
-    </h1>
-  
+        <p>public class 中不能用class，只能static class是为了防止类相互引用吗？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parent</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Child</span>()</span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Child c = <span class="keyword">new</span> Child(); <span class="comment">// 无法new Child，将Child 声明为static class可以使用</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>线程在JVM中存在和运行形式</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/27/【jre】拷贝数组arraycopy和copyOf/" class="archive-article-date">
-  <time datetime="2019-02-27T14:51:04.000Z" itemprop="datePublished">Feb 27</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/27/【jre】拷贝数组arraycopy和copyOf/">【jre】拷贝数组arraycopy和copyOf</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/27/【基础】浮点数精确度探索/" class="archive-article-date">
-  <time datetime="2019-02-27T12:59:17.000Z" itemprop="datePublished">Feb 27</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/27/【root】疑问/" data-id="cjsu8wp4q0007ms9jq1m1hacb" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/27/【基础】浮点数精确度探索/">【基础】浮点数精确度探索</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/26/【git】git命令即查/" class="archive-article-date">
-  <time datetime="2019-02-26T13:53:32.000Z" itemprop="datePublished">Feb 26</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/26/【git】git命令即查/">【git】git命令即查</a>
-    </h1>
-  
-
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/26/【hexo】hexo配置&功能/" class="archive-article-date">
-  <time datetime="2019-02-26T13:14:25.413Z" itemprop="datePublished">Feb 26</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/26/【hexo】hexo配置&功能/">【hexo】hexo配置功能</a>
-    </h1>
   
+    <a href="/2019/02/27/【jre】线程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【jre】线程</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/02/26/【hexo】hexo快速搭建/" class="archive-article-date">
-  <time datetime="2019-02-26T12:32:21.336Z" itemprop="datePublished">Feb 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/26/【hexo】hexo快速搭建/">【hexo】HEXO快速搭建</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         

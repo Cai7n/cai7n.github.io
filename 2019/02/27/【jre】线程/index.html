@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>【jre】线程 | Cai7n 蔡柒&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="线程代码实例12345678910111213141516171819202122232425262728293031323334// 1. 实现    // 继承Thread    public class ThreadTest extends Thread &amp;#123;        @Override        public void run() &amp;#123;            Sy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【jre】线程">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/【jre】线程/index.html">
+<meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
+<meta property="og:description" content="线程代码实例12345678910111213141516171819202122232425262728293031323334// 1. 实现    // 继承Thread    public class ThreadTest extends Thread &amp;#123;        @Override        public void run() &amp;#123;            Sy">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/02/27/【jre】线程/1.jpg">
+<meta property="og:updated_time" content="2019-03-02T12:02:38.737Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【jre】线程">
+<meta name="twitter:description" content="线程代码实例12345678910111213141516171819202122232425262728293031323334// 1. 实现    // 继承Thread    public class ThreadTest extends Thread &amp;#123;        @Override        public void run() &amp;#123;            Sy">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/27/【jre】线程/1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Cai7n 蔡柒&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-【jre】线程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/27/【jre】线程/" class="article-date">
+  <time datetime="2019-02-27T14:52:20.000Z" itemprop="datePublished">2019-02-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/jre/">jre</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【jre】线程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="线程代码实例"><a href="#线程代码实例" class="headerlink" title="线程代码实例"></a>线程代码实例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 实现</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 继承Thread</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"I'm running!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    ｝</span><br><span class="line">    ThreadTest t = <span class="keyword">new</span> ThreadTest();</span><br><span class="line">    t.start();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 实现Runnable接口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadTest</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"I'm running!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    Runnable r = <span class="keyword">new</span> ThreadTest();</span><br><span class="line">    Thread t = <span class="keyword">new</span> Thread(r);</span><br><span class="line">    t.start();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用接口更加灵活，可以实现多个接口</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 线程常用方法</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 类方法</span></span><br><span class="line">	Thread.sleep();	<span class="comment">// 暂停当前执行代码的线程</span></span><br><span class="line">    Thread.yield();	<span class="comment">// 试图让其他线程先执行</span></span><br><span class="line"> 	<span class="comment">// 实例方法</span></span><br><span class="line">    thread.join();		<span class="comment">// 上。调用线程等待wait,t执行完毕唤醒。join()方法中调用了wait(0)</span></span><br><span class="line">	object.wait();</span><br></pre></td></tr></table></figure>
+<h3 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h3><p><img src="/2019/02/27/【jre】线程/1.jpg" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/02/27/【jre】线程/" data-id="cjsu8wp4o0005ms9jzfoyvzs7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/27/【root】疑问/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          【jvm】疑问
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/27/【jre】拷贝数组arraycopy和copyOf/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【jre】拷贝数组arraycopy和copyOf</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jre/">jre</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/root/">root</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础/">基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/27/【root】疑问/">【jvm】疑问</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/【jre】线程/">【jre】线程</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/【jre】拷贝数组arraycopy和copyOf/">【jre】拷贝数组arraycopy和copyOf</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/27/【基础】浮点数精确度探索/">【基础】浮点数精确度探索</a>
+          </li>
+        
+          <li>
+            <a href="/2019/02/26/【git】git命令即查/">【git】git命令即查</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

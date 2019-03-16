@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
 <meta property="og:description" content="大小端模式（便于理解数据在内存具体表示）非单字节非字符串外的其余数据，在内存中字节的排序。 例：41715 = A2 F3，大端：A2 F3，小端：F3 A2； 例：数组{1,2}，小端： 123456789# 二进制内存中表示00 	: 0000 0001 - 1byte01	: 0000 0000	: 0000 0000	: 0000 000004	: 0000 0002	: 0000 000">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-04T11:12:26.268Z">
+<meta property="og:updated_time" content="2019-03-16T12:09:19.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【基础】浮点数精确度探索">
 <meta name="twitter:description" content="大小端模式（便于理解数据在内存具体表示）非单字节非字符串外的其余数据，在内存中字节的排序。 例：41715 = A2 F3，大端：A2 F3，小端：F3 A2； 例：数组{1,2}，小端： 123456789# 二进制内存中表示00 	: 0000 0001 - 1byte01	: 0000 0000	: 0000 0000	: 0000 000004	: 0000 0002	: 0000 000">
@@ -370,6 +370,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#大小端模式（便于理解数据在内存具体表示）"><span class="toc-number">1.</span> <span class="toc-text">大小端模式（便于理解数据在内存具体表示）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32位编译器和64位编译器"><span class="toc-number">2.</span> <span class="toc-text">32位编译器和64位编译器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#十进制二进制互转公式，带小数点（理解有限十进制小数到二进制会出现无限二进制）"><span class="toc-number">3.</span> <span class="toc-text">十进制二进制互转公式，带小数点（理解有限十进制小数到二进制会出现无限二进制）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#纯粹计算机十进制和二进制值的运算（理解运算是否会导致数据失真）"><span class="toc-number">4.</span> <span class="toc-text">纯粹计算机十进制和二进制值的运算（理解运算是否会导致数据失真）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点数在计算机中的格式和损失（计算机通过何种计算方式从二进制转到这种固定格式？这种格式下的计算原理-）"><span class="toc-number">5.</span> <span class="toc-text">浮点数在计算机中的格式和损失（计算机通过何种计算方式从二进制转到这种固定格式？这种格式下的计算原理?）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#32位浮点数"><span class="toc-number">5.1.</span> <span class="toc-text">32位浮点数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#64位浮点数"><span class="toc-number">5.2.</span> <span class="toc-text">64位浮点数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点数较安全使用方式"><span class="toc-number">6.</span> <span class="toc-text">浮点数较安全使用方式</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

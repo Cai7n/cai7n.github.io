@@ -17,7 +17,7 @@
 <meta property="og:description" content="git待完善 三路合并原理  git 总览">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/03/16/git-git学习/1.png">
-<meta property="og:updated_time" content="2019-03-19T11:44:23.134Z">
+<meta property="og:updated_time" content="2019-03-25T13:39:16.076Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-git学习">
 <meta name="twitter:description" content="git待完善 三路合并原理  git 总览">
@@ -181,15 +181,22 @@
 <li>三路合并原理</li>
 </ul>
 <h2 id="git-总览"><a href="#git-总览" class="headerlink" title="git 总览"></a>git 总览</h2><p><img src="/2019/03/16/git-git学习/1.png" alt><br><a id="more"></a></p>
+<h2 id="根据业务整理命令"><a href="#根据业务整理命令" class="headerlink" title="根据业务整理命令"></a>根据业务整理命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">git remote add origin http...</span><br><span class="line"></span><br><span class="line">git remote remove origin</span><br><span class="line"></span><br><span class="line"># 初次提交，需要本地提交一次commit</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line"># 或者copy一个远程已有的项目</span><br><span class="line">git clone http://user@1.1.1.1/ex.git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git commit -a -m </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 删除跟踪(最基本的)，删除工作和暂存</span><br><span class="line">git rm --cache </span><br><span class="line"></span><br><span class="line"># ?</span><br><span class="line">git rm -f</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git reset --hard commit_id。</span><br><span class="line"></span><br><span class="line">git log</span><br><span class="line">git log --oneline</span><br><span class="line"></span><br><span class="line">git reflog</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git add -A</span><br><span class="line"># 添加已跟踪的变更</span><br><span class="line">git add -u </span><br><span class="line"></span><br><span class="line"># 注意</span><br><span class="line"># 第一次修改 -&gt; git add -&gt; 第二次修改 -&gt; git commit</span><br><span class="line"># 你看，我们前面讲了，Git管理的是修改，当你用git add命令后，在工作区的第一次修改被放入暂存区，准备提交，但是，在工作区的第二次修改并没有放入暂存区，所以，git commit只负责把暂存区的修改提交了，也就是第一次的修改被提交了，第二次的修改不会被提交。</span><br><span class="line"># 结论： 还未被添加的，add之前的更改都会被add。add后，commit前，只会commit add的修改。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># add前，比较工作和暂存</span><br><span class="line">git diff</span><br><span class="line"></span><br><span class="line"># commit前，比较暂存和本地版本库</span><br><span class="line">git diff --cached </span><br><span class="line"># ==</span><br><span class="line">git diff --staged</span><br><span class="line"></span><br><span class="line"># 忽略暂存，比较工作区和库</span><br><span class="line">git diff HEAD</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 当前目录 还原到 暂存区的版本</span><br><span class="line">git checkout -- file</span><br><span class="line"># 当前目录 还原到 版本库中的版本</span><br><span class="line"># 1.先版本库返回到暂存 2.暂存返回到工作区</span><br><span class="line">git reset Head file</span><br><span class="line">git checkout -- file</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	git checkout branch 切换分支，不还原文件？</span><br><span class="line">	git checkout branch file 还原文件</span><br><span class="line">	</span><br><span class="line"># check out 和 reset 区别：head—&gt;master-&gt;92ds2s</span><br><span class="line"># check out 改变 head 指向 别branch，reset 移动master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git branch </span><br><span class="line"></span><br><span class="line">git checkout </span><br><span class="line">git checkout -d</span><br><span class="line"></span><br><span class="line">git diff master otherBranch</span><br><span class="line">git merge otherBranch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 本地未提交过的库，做成git放在服务器做库</span><br><span class="line">git clone --bare ProjectA ProjectA.git </span><br><span class="line"></span><br><span class="line"># 导出光代码，不带库，用来提交SVN或给其他人</span><br><span class="line">git archive --format zip --output &quot;./output.zip&quot; master -0 </span><br><span class="line"># ?</span><br><span class="line">git archive -o ../latest.zip HEAD</span><br></pre></td></tr></table></figure>
 <h2 id="命令缩写设置"><a href="#命令缩写设置" class="headerlink" title="命令缩写设置"></a>命令缩写设置</h2><p>在config文件（git/mingw64/etc）下追加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[alias]</span><br><span class="line">	st = status</span><br><span class="line">	a = add</span><br><span class="line">	b = branch</span><br><span class="line">	c = commit </span><br><span class="line">	ca = commit -a</span><br></pre></td></tr></table></figure></p>
 <h2 id="整理命令"><a href="#整理命令" class="headerlink" title="整理命令"></a>整理命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 打印日志，美观</span><br><span class="line">git log --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit</span><br></pre></td></tr></table></figure>
 <h2 id="ignore-规则"><a href="#ignore-规则" class="headerlink" title="ignore 规则"></a>ignore 规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">#floder文件或文件夹</span><br><span class="line">floder 			</span><br><span class="line"></span><br><span class="line"># floder文件夹</span><br><span class="line">floder/ 		</span><br><span class="line"></span><br><span class="line"># 仅floder文件</span><br><span class="line">floder</span><br><span class="line">!floder/	</span><br><span class="line"></span><br><span class="line"># 根目录下的floder，其他目录下的floder不受影响</span><br><span class="line">/floder			``</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#　检查代码哪里忽略了某文件</span><br><span class="line">$ git check-ignore -v App.class</span><br></pre></td></tr></table></figure>
 <h2 id="出现的问题"><a href="#出现的问题" class="headerlink" title="出现的问题"></a>出现的问题</h2><ul>
-<li><p>diff 的原理是什么？怎么识别在中间插入的代码？<br>diff 使用的是Unix中的合并diff，用到的算法是动态规划里的最长子序列。</p>
-</li>
-<li><p>diff 出现^M？<br>git config –global core.whitespace cr-at-eol<br>core.whitespace 探测和修改空白问题，其4种抓选项中的2个默认被打开，另2个被关闭<br>默认被打开的2个选项是trailing-space和space-before-tab    trailinig-space会查找每行结尾的空格，  space-before-tab 会查找每行开头的制表符前的空格<br>默认被关闭的2个选项是indent-with-non-tab和cr-at-eol    indent-with-non-tab会查找8个以上空格(非制表符)开头的行， cr-at-eol 让Git指定行尾回车符是合法的</p>
-</li>
+<li>diff 的原理是什么？怎么识别在中间插入的代码？<br>diff 使用的是Unix中的合并diff，用到的算法是动态规划里的最长子序列。</li>
+<li>diff 出现^M？<br>git config –global core.whitespace cr-at-eol<br>core.whitespace 探测和修改空白问题，其4种抓选项中的2个默认被打开，另2个被关闭<br>默认被打开的2个选项是trailing-space和space-before-tab    trailinig-space会查找每行结尾的空格，  space-before-tab 会查找每行开头的制表符前的空格<br>默认被关闭的2个选项是indent-with-non-tab和cr-at-eol    indent-with-non-tab会查找8个以上空格(非制表符)开头的行， cr-at-eol 让Git指定行尾回车符是合法的</li>
 </ul>
+<blockquote>
+<p>参考</p>
+<p>gityuan博客 git<br><a href="http://gityuan.com/2015/06/27/git-notes/" target="_blank" rel="noopener">http://gityuan.com/2015/06/27/git-notes/</a></p>
+<p>reset和checkout的区别<br><a href="https://segmentfault.com/a/1190000006185954" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006185954</a></p>
+<p>动画git教程<br><a href="https://learngitbranching.js.org/?demo" target="_blank" rel="noopener">https://learngitbranching.js.org/?demo</a></p>
+<p>github 常用.ignore<br><a href="https://github.com/github/gitignore" target="_blank" rel="noopener">https://github.com/github/gitignore</a></p>
+<p>简易指南<br><a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">http://www.bootcss.com/p/git-guide/</a></p>
+</blockquote>
 
       
 
@@ -337,7 +344,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git"><span class="toc-number">1.</span> <span class="toc-text">git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.</span> <span class="toc-text">待完善</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-总览"><span class="toc-number">1.2.</span> <span class="toc-text">git 总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令缩写设置"><span class="toc-number">1.3.</span> <span class="toc-text">命令缩写设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整理命令"><span class="toc-number">1.4.</span> <span class="toc-text">整理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ignore-规则"><span class="toc-number">1.5.</span> <span class="toc-text">ignore 规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#出现的问题"><span class="toc-number">1.6.</span> <span class="toc-text">出现的问题</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git"><span class="toc-number">1.</span> <span class="toc-text">git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.</span> <span class="toc-text">待完善</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-总览"><span class="toc-number">1.2.</span> <span class="toc-text">git 总览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#根据业务整理命令"><span class="toc-number">1.3.</span> <span class="toc-text">根据业务整理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令缩写设置"><span class="toc-number">1.4.</span> <span class="toc-text">命令缩写设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整理命令"><span class="toc-number">1.5.</span> <span class="toc-text">整理命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ignore-规则"><span class="toc-number">1.6.</span> <span class="toc-text">ignore 规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#出现的问题"><span class="toc-number">1.7.</span> <span class="toc-text">出现的问题</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -471,11 +478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jre</a>
+                <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,11 +494,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">my</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -152,6 +152,409 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-spring-05-mabatis篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/spring-05-mabatis篇/">spring-05-mabatis篇</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/03/spring-05-mabatis篇/" class="archive-article-date">
+  	<time datetime="2019-04-03T13:46:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-Mybatis"><a href="#Spring-Mybatis" class="headerlink" title="Spring - Mybatis"></a>Spring - Mybatis</h1><ol>
+<li>引入依赖</li>
+</ol>
+<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">2. mapper层</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">// org.example.project.mapper/</span><br><span class="line">public interface ProductMapper</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>初始化扫描mapper包来生成实际数据库操作对象</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@MapperScan</span>(<span class="string">"org.example.project.mapper"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>实现mapper接口Sql语句对应</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 插入可以用对象作为参数，也可以用Map</span></span><br><span class="line">   <span class="meta">@Insert</span>(<span class="string">"insert into product_category(name, type) values (#&#123;name, jdbcType=VARCHAR&#125;, #&#123;type, jdbcType=VARCHAR&#125;)"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertByObject</span><span class="params">(Product product)</span></span>; <span class="comment">// 或者</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertByMap</span><span class="params">(Map&lt;String, Object&gt;)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数据。注意需要声明获取字段，还有获取List和一个的情况，返回参数应该明确对象或者List</span></span><br><span class="line">   <span class="meta">@Select</span>(<span class="string">"select img_id from ai_now_image limit 0,1"</span>)</span><br><span class="line">   <span class="meta">@Results</span>(&#123;</span><br><span class="line">           <span class="meta">@Result</span>(column = <span class="string">"img_id"</span>, property = <span class="string">"imgId"</span>)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="function">AINowImage <span class="title">getTheNowImage</span><span class="params">()</span></span>;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 更新对象。最好参数@Param，返回int是更新的条数</span></span><br><span class="line">   <span class="meta">@Update</span>(<span class="string">"update ai_now_image set img_id = #&#123;imgId&#125; where img_id = #&#123;orgImgId&#125;"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">updateByImgId</span><span class="params">(@Param(<span class="string">"orgImgId"</span>)</span>String orgImgId, @<span class="title">Param</span><span class="params">(<span class="string">"imgId"</span>)</span>String imgId)</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 删除对象。返回int也是影响的条数</span></span><br><span class="line">   <span class="meta">@Delete</span>(<span class="string">"delete from ai_now_image where img_id = #&#123;imgId&#125;"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">deleteByImgId</span><span class="params">(String imgId)</span></span>;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>配置来显示Mybatis的sql语句执行</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line"><span class="attr">  level:</span></span><br><span class="line">    <span class="string">org.example.project.mapper:</span> <span class="string">trace</span> <span class="comment"># 追踪mapper下的sql语句</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/03/spring-05-mabatis篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring-02-基础篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/spring-02-基础篇/">spring-02-基础篇</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/03/spring-02-基础篇/" class="archive-article-date">
+  	<time datetime="2019-04-03T13:12:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring - 基础"></a>Spring - 基础</h1><h2 id="新建项目和运行"><a href="#新建项目和运行" class="headerlink" title="新建项目和运行"></a>新建项目和运行</h2><p>在Idea中选择SpringBootInit中初始化，并选择插件WEB，即自动生成SpringBoot项目。<br>启动方式分三种：</p>
+<pre><code>1. 右键启动类运行
+2. 命令行运行，<figure class="highlight plain"><figcaption><span>spring-boot:run;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 编译打包后用java命令运行，```mvn install; java -jar targe/aim.jar;</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="简单注解"><a href="#简单注解" class="headerlink" title="简单注解"></a>简单注解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Autowired</span><br><span class="line"></span><br><span class="line">- 只能引入 @Component或 @Service注解的类，实际还能引入interface，但跨包好像不行</span><br><span class="line">- 引入同一个类两次，两个对象也是一样的</span><br><span class="line">- 多个子类实现类会让自动引入出错，通过ID和变量名指定。@Service(&quot;sv1&quot;) 对应 MyClass sv1;</span><br><span class="line"></span><br><span class="line">@RestController </span><br><span class="line">声明Rest接口类</span><br><span class="line"></span><br><span class="line">@RequestMapping(value=&quot;/hello/&#123;id&#125;&quot;, method=GET, required=false, defaultValue=&quot;0&quot;)</span><br><span class="line">声明接口地址，可以用多个value。</span><br><span class="line">地址&#123;id&#125;变量需要在方法参数中用注释 @PathVariable(&quot;id&quot;)对应</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Transactional(rollbackFor = Exception.class)</span><br><span class="line">事务，通常在@Service层中注解，确保多个操作原子性</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/04/03/spring-02-基础篇/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/03/spring-02-基础篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring-04-jpa篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/spring-04-jpa篇/">spring-04-jpa篇</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/03/spring-04-jpa篇/" class="archive-article-date">
+  	<time datetime="2019-04-03T13:12:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-JPA"><a href="#Spring-JPA" class="headerlink" title="Spring - JPA"></a>Spring - JPA</h1><ol>
+<li>引入JPA依赖</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/04/03/spring-04-jpa篇/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/03/spring-04-jpa篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring-03-log篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/spring-03-log篇/">spring-03-log篇</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/03/spring-03-log篇/" class="archive-article-date">
+  	<time datetime="2019-04-03T13:12:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/03/spring-03-log篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring-01-idea篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/03/spring-01-idea篇/">spring-01-idea篇</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/03/spring-01-idea篇/" class="archive-article-date">
+  	<time datetime="2019-04-03T12:53:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-IDEA"><a href="#Spring-IDEA" class="headerlink" title="Spring - IDEA"></a>Spring - IDEA</h1><ul>
+<li><p>如何在IDEA中快速查找插入依赖？<br>在<dependencies>标签里按下alt+insert，呼出dependence依赖查找界面。</dependencies></p>
+</li>
+<li><p>lombok插件支持<br>用lombok的<code>@Data @Slf4j</code>等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。lombok的toString()方法只会遍历子类的属性打印。</p>
+</li>
+<li><p>新建单元测试？</p>
+<p>右键方法或类，generate-Junit Test。</p>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/04/03/spring-01-idea篇/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/03/spring-01-idea篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-jre-并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -567,399 +970,6 @@
 
 
   
-    <article id="post-设计模式-装饰模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/25/设计模式-装饰模式/">设计模式-装饰模式</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/25/设计模式-装饰模式/" class="archive-article-date">
-  	<time datetime="2019-03-25T14:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h1><p>比较简单，简单用代码表示<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">implements</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    <span class="function">String <span class="title">speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Gentleman</span> <span class="keyword">implements</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    Man man;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function">String <span class="title">speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// do sth</span></span><br><span class="line">        man.speak();</span><br><span class="line">        <span class="comment">// do sth</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>装饰模式可以加强原类的功能，如果采用继承，也可以在需要拓展的方法里用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    logger.log(<span class="string">"start"</span>);</span><br><span class="line">    String result = <span class="keyword">super</span>.foo();</span><br><span class="line">	logger.log(<span class="string">"end"</span>);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>但是继承太死板，需要继续增强功能的时候，只能新继承重新写方法，用装饰模式可以达到逐渐增强（每层都对某方面加强）的效果，在装饰类外边再套一层装饰类，且组合任意几种装饰更灵活。<br>装饰模式可以在对象层面增强，利用父类对象行为。继承的话用子类新建对象来操作，父类对象就放弃使用了，利用父类类行为。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/25/设计模式-装饰模式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-设计模式-状态机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/25/设计模式-状态机/">设计模式-状态机</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/25/设计模式-状态机/" class="archive-article-date">
-  	<time datetime="2019-03-25T13:43:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="有限状态机"><a href="#有限状态机" class="headerlink" title="有限状态机"></a>有限状态机</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>有限状态机FSM的要点是：</p>
-<p>拥有一组状态，并且可以在这组状态之间进行切换。在我们的例子中，是站立，跳跃，蹲下和跳斩。<br>状态机同时只能在一个状态。英雄不可能同时处于跳跃和站立。事实上，防止这点是使用FSM的理由之一。<br>一连串的输入或事件被发送给机器。在我们的例子中，就是按键按下和松开。<br>每个状态都有一系列的转换，转换与输入和另一状态相关。当输入进来，如果它与当前状态的某个转换匹配，机器转为转换所指的状态。<br>举个例子，在站立状态时，按下下键转换为俯卧状态。在跳跃时按下下键转换为跳斩。如果输入在当前状态没有定义转换，输入就被忽视。</p>
-<p>目前而言，游戏编程中状态机的实现方式，有两种可以选择：</p>
-<p>用枚举配合switch case语句。<br>用多态与虚函数（也就是状态模式）。</p>
-<h2 id="在订单或流程系统中的应用"><a href="#在订单或流程系统中的应用" class="headerlink" title="在订单或流程系统中的应用"></a>在订单或流程系统中的应用</h2><p>定义状态，比如“提交”、“审核通过”、“审核不通过”、“已删除”<br>定义动作，比如“修改”、“审核”、“删除”</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 订单bean</span></span><br><span class="line"><span class="keyword">public</span> Order</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 订单所有的状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_SUBMIT = <span class="number">0</span>; 	<span class="comment">// 提交状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_PASS = <span class="number">1</span>;	<span class="comment">// 通过状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_FAIL = -<span class="number">1</span>;	<span class="comment">// 未通过状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_DEL = -<span class="number">9</span>;	<span class="comment">// 删除状态</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 订单支持的状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_EDIT = <span class="string">"修改"</span>；</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_VERIFY_PASS = <span class="string">"审核通过"</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_VERIFY_FAIL = <span class="string">"审核不通过"</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_DELETE = <span class="string">"删除"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> state;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 封装内部状态变更，调用者只需要关心，传入什么操作</span></span><br><span class="line">    <span class="comment">// switch case 比较适合，多态需要将状态分别创建类，并写各自的处理动作，每个状态类还需要一个如上述状态int值一一对应，复杂了，且代码约束和状态管理不如switch case</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 订单状态变更，返回结果不为空字符串说明操作失败</span></span><br><span class="line"><span class="comment">     *	，在Controller层应该返回类似 action+"操作失败"</span></span><br><span class="line"><span class="comment">     *	，如果为空，提示应该类似 action+"成功"</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">changeState</span><span class="params">(String action)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    	<span class="keyword">switch</span>(<span class="keyword">this</span>.state)</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="keyword">case</span> ST_DEL:</span><br><span class="line">            &#123;</span><br><span class="line">            	<span class="keyword">if</span>(AC_EDIT.equal(action))</span><br><span class="line">                &#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="string">"无法修改已删除的订单"</span>;                </span><br><span class="line">                &#125;</span><br><span class="line">                ...</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> ST_FAIL:</span><br><span class="line">            &#123;</span><br><span class="line">            	<span class="keyword">if</span>(AC_EDIT.equal(action))</span><br><span class="line">                &#123;</span><br><span class="line">                	<span class="keyword">this</span>.state = ST_SUBMIT;<span class="comment">// 修改后还原为提交状态</span></span><br><span class="line">                &#125;</span><br><span class="line">                ...</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在平常的系统中针对动作接口，接口内判断状态，如果接口是精细到和上面代码一样的一一对应还好，如果接口是包含多个动作组合的，在每个接口独立的去判断状态来进行相应的改变，后期如果加上一个状态和一个动作，将变得不可维护。</p>
-<p>使用状态模式，符合了设计模式中的 迪米特法则（最小知道法则），设计系统时，应该尽量减少对象之间的交互，在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限。</p>
-<blockquote>
-<p>参考<br>游戏设计模式之三：<a href="https://blog.csdn.net/poem_qianmo/article/details/52824776" target="_blank" rel="noopener">https://blog.csdn.net/poem_qianmo/article/details/52824776</a> </p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/25/设计模式-状态机/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-基础-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/25/基础-正则表达式/">基础-正则表达式</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/25/基础-正则表达式/" class="archive-article-date">
-  	<time datetime="2019-03-25T13:23:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h2><p><img src="/2019/03/25/基础-正则表达式/1.png" alt></p>
-<h2 id="1-元字符"><a href="#1-元字符" class="headerlink" title="1. 元字符"></a>1. 元字符</h2><p>[0-9a-z]<br>[)-]<br>[]<br>\d //digital<br>\w //word<br>\s //space<br>. //“\n” 之外的任何单个字符</p>
-<h2 id="2-数量"><a href="#2-数量" class="headerlink" title="2. 数量"></a>2. 数量</h2><p>?<br>+<br>*<br>{2,9}</p>
-<h2 id="附加-glob模式"><a href="#附加-glob模式" class="headerlink" title="附加. glob模式"></a>附加. glob模式</h2><p>* 匹配任意 0 或多个任意字符<br>? 匹配任意一个字符<br>[…] 若字符在中括号中，则匹配。若以 ! 或 ^ 开头，若字符不在中括号中，则匹配<br>!(pattern|pattern|pattern) 不满足括号中的所有模式则匹配<br>?(pattern|pattern|pattern) 满足 0 或 1 括号中的模式则匹配<br>+(pattern|pattern|pattern) 满足 1 或 更多括号中的模式则匹配<br><em>(a|b|c) 满足 0 或 更多括号中的模式则匹配<br>@(pattern|pat</em>|pat?erN) 满足 1 个括号中的模式则匹配<br>*<em> 跨路径匹配任意字符 (lib/</em>/.js,lib下任意所有的js文件)</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/25/基础-正则表达式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jvm-配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/23/jvm-配置/">jvm-配置</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/23/jvm-配置/" class="archive-article-date">
-  	<time datetime="2019-03-23T00:49:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JVM配置"><a href="#JVM配置" class="headerlink" title="JVM配置"></a>JVM配置</h1><h2 id="经典配置"><a href="#经典配置" class="headerlink" title="经典配置"></a>经典配置</h2><p>TODO 待测试</p>
-<blockquote>
-<p>参考<br>jvm参数详细：<a href="https://blog.csdn.net/xiajian2010/article/details/17376157" target="_blank" rel="noopener">https://blog.csdn.net/xiajian2010/article/details/17376157</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/23/jvm-配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-jre-关于异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/21/jre-关于异常/">jre-关于异常</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/21/jre-关于异常/" class="archive-article-date">
-  	<time datetime="2019-03-21T15:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java异常"><a href="#Java异常" class="headerlink" title="Java异常"></a>Java异常</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p><img src="/2019/03/21/jre-关于异常/1.jpg" alt></p>
-<h2 id="Error-和-Exception"><a href="#Error-和-Exception" class="headerlink" title="Error 和 Exception"></a>Error 和 Exception</h2><p>Error是错误，Exception是异常，错误不可恢复，异常可以补救。</p>
-<h2 id="Checked-Exception-和-Unchecked-Exception"><a href="#Checked-Exception-和-Unchecked-Exception" class="headerlink" title="Checked Exception 和 Unchecked Exception"></a>Checked Exception 和 Unchecked Exception</h2><p>Checked Exception必须try catch或throws ，编译阶段会检查<br>Unchecked Exception，像nullpoint，数组越界，编译阶段不会检查，运行中可能出现，可能不出现的异常，可以避免。等于RuntimeException？</p>
-<blockquote>
-<p>参考<br>捕获时机：<a href="https://blog.csdn.net/miracle_8/article/details/78285940" target="_blank" rel="noopener">https://blog.csdn.net/miracle_8/article/details/78285940</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/21/jre-关于异常/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1067,11 +1077,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1087,6 +1097,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">my</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
@@ -1095,19 +1109,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">my</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">

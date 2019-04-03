@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: java | Cai7n 蔡柒&#39;s Blog</title>
+  <title>spring-05-mabatis篇 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/java/index.html">
+  <meta name="description" content="Spring - Mybatis 引入依赖  ```1234567891011&amp;lt;!-- more --&amp;gt;2. mapper层```java// org.example.project.mapper/public interface ProductMapper&amp;#123;    &amp;#125;  初始化扫描mapper包来生成实际数据库操作对象  123456@SpringBootAppl">
+<meta name="keywords" content="spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-05-mabatis篇">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/spring-05-mabatis篇/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
+<meta property="og:description" content="Spring - Mybatis 引入依赖  ```1234567891011&amp;lt;!-- more --&amp;gt;2. mapper层```java// org.example.project.mapper/public interface ProductMapper&amp;#123;    &amp;#125;  初始化扫描mapper包来生成实际数据库操作对象  123456@SpringBootAppl">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-03T15:02:17.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cai7n 蔡柒&#39;s Blog">
+<meta name="twitter:title" content="spring-05-mabatis篇">
+<meta name="twitter:description" content="Spring - Mybatis 引入依赖  ```1234567891011&amp;lt;!-- more --&amp;gt;2. mapper层```java// org.example.project.mapper/public interface ProductMapper&amp;#123;    &amp;#125;  初始化扫描mapper包来生成实际数据库操作对象  123456@SpringBootAppl">
   
     <link rel="alternative" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -150,174 +155,199 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-spring-05-mabatis篇" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-05-mabatis篇
+    </h1>
+  
+
+        
+        <a href="/2019/04/03/spring-05-mabatis篇/" class="archive-article-date">
+  	<time datetime="2019-04-03T13:46:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-Mybatis"><a href="#Spring-Mybatis" class="headerlink" title="Spring - Mybatis"></a>Spring - Mybatis</h1><ol>
+<li>引入依赖</li>
+</ol>
+<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">2. mapper层</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">// org.example.project.mapper/</span><br><span class="line">public interface ProductMapper</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>初始化扫描mapper包来生成实际数据库操作对象</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@MapperScan</span>(<span class="string">"org.example.project.mapper"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>实现mapper接口Sql语句对应</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 插入可以用对象作为参数，也可以用Map</span></span><br><span class="line">   <span class="meta">@Insert</span>(<span class="string">"insert into product_category(name, type) values (#&#123;name, jdbcType=VARCHAR&#125;, #&#123;type, jdbcType=VARCHAR&#125;)"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertByObject</span><span class="params">(Product product)</span></span>; <span class="comment">// 或者</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertByMap</span><span class="params">(Map&lt;String, Object&gt;)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数据。注意需要声明获取字段，还有获取List和一个的情况，返回参数应该明确对象或者List</span></span><br><span class="line">   <span class="meta">@Select</span>(<span class="string">"select img_id from ai_now_image limit 0,1"</span>)</span><br><span class="line">   <span class="meta">@Results</span>(&#123;</span><br><span class="line">           <span class="meta">@Result</span>(column = <span class="string">"img_id"</span>, property = <span class="string">"imgId"</span>)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="function">AINowImage <span class="title">getTheNowImage</span><span class="params">()</span></span>;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 更新对象。最好参数@Param，返回int是更新的条数</span></span><br><span class="line">   <span class="meta">@Update</span>(<span class="string">"update ai_now_image set img_id = #&#123;imgId&#125; where img_id = #&#123;orgImgId&#125;"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">updateByImgId</span><span class="params">(@Param(<span class="string">"orgImgId"</span>)</span>String orgImgId, @<span class="title">Param</span><span class="params">(<span class="string">"imgId"</span>)</span>String imgId)</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 删除对象。返回int也是影响的条数</span></span><br><span class="line">   <span class="meta">@Delete</span>(<span class="string">"delete from ai_now_image where img_id = #&#123;imgId&#125;"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">deleteByImgId</span><span class="params">(String imgId)</span></span>;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>配置来显示Mybatis的sql语句执行</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line"><span class="attr">  level:</span></span><br><span class="line">    <span class="string">org.example.project.mapper:</span> <span class="string">trace</span> <span class="comment"># 追踪mapper下的sql语句</span></span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/21/jre-关于异常/" class="archive-article-date">
-  	<time datetime="2019-03-21T15:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/21/jre-关于异常/">jre-关于异常</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/03/spring-05-mabatis篇/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/21/jre-java基础知识和理论/" class="archive-article-date">
-  	<time datetime="2019-03-21T15:14:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/03/spring-02-基础篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring-02-基础篇</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/21/jre-java基础知识和理论/">jre-java基础知识和理论</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Mybatis"><span class="toc-number">1.</span> <span class="toc-text">Spring - Mybatis</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/18/jre-深浅拷贝/" class="archive-article-date">
-  	<time datetime="2019-03-18T10:44:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/18/jre-深浅拷贝/">jre-深浅拷贝</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/16/jre-数组拷贝（System和Arrays）/" class="archive-article-date">
-  	<time datetime="2019-03-16T15:50:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/16/jre-数组拷贝（System和Arrays）/">jre-数组拷贝（System和Arrays）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -350,9 +380,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

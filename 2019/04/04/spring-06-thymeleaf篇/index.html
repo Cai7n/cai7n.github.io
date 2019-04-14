@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>maven-maven学习 | Cai7n 蔡柒&#39;s Blog</title>
+  <title>spring-06-thymeleaf篇 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="maven学习待完善 scope 和 条件编译 依赖范围、依赖传递 POM 命令 部署Tomcat，打包war包或者命令">
-<meta name="keywords" content="maven">
-<meta property="og:type" content="article">
-<meta property="og:title" content="maven-maven学习">
-<meta property="og:url" content="http://yoursite.com/2019/03/16/maven-maven学习/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="spring-06-thymeleaf篇">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/spring-06-thymeleaf篇/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:description" content="maven学习待完善 scope 和 条件编译 依赖范围、依赖传递 POM 命令 部署Tomcat，打包war包或者命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-19T13:51:34.700Z">
+<meta property="og:updated_time" content="2019-04-04T14:03:38.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="maven-maven学习">
-<meta name="twitter:description" content="maven学习待完善 scope 和 条件编译 依赖范围、依赖传递 POM 命令 部署Tomcat，打包war包或者命令">
+<meta name="twitter:title" content="spring-06-thymeleaf篇">
   
     <link rel="alternative" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -155,64 +151,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-maven-maven学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-spring-06-thymeleaf篇" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      maven-maven学习
+      spring-06-thymeleaf篇
     </h1>
   
 
         
-        <a href="/2019/03/16/maven-maven学习/" class="archive-article-date">
-  	<time datetime="2019-03-16T15:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+        <a href="/2019/04/04/spring-06-thymeleaf篇/" class="archive-article-date">
+  	<time datetime="2019-04-04T14:03:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="maven学习"><a href="#maven学习" class="headerlink" title="maven学习"></a>maven学习</h1><h2 id="待完善"><a href="#待完善" class="headerlink" title="待完善"></a>待完善</h2><ul>
-<li>scope 和 条件编译</li>
-<li>依赖范围、依赖传递</li>
-<li>POM</li>
-<li>命令</li>
-<li>部署Tomcat，打包war包或者命令</li>
-</ul>
-<a id="more"></a>
-<h2 id="术语前言"><a href="#术语前言" class="headerlink" title="术语前言"></a>术语前言</h2><ul>
-<li><p>Maven的好处：自动构建、跨平台、标准化、多模块</p>
-</li>
-<li><p>依赖插件：构建过程各阶段工作需要插件实现，大部分插件都是现成的</p>
-</li>
-<li><p>Maven目录结构：<br>boot： plexus-classworlds-2.5.2.jar，是一个类加载器，加载Maven的类库<br>conf： Maven全局配置</p>
-</li>
-<li><p>仓库分类：本地和远程的</p>
-</li>
-<li><p>Maven坐标：<br>groupId、artifactId、version、packaging、classifier。<br>org.spring:spring-jdbc-doc:0.1-SNAPSHOT</p>
-</li>
-<li><p>快照（SNAPSHOT）：快照（SNAPSHOT）是一种特殊的版本，指定了某个当前的开发进度的副本。不同于常规的版本，Maven每次构建都会在远程仓库中检查新的快照。<br>用来加在未形成稳定版本开发中的库上，不用每次都改依赖版本。</p>
-</li>
-<li><p>Nexus：用来自己搭建仓库的工具</p>
-</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li><p>解压</p>
-</li>
-<li><p>配置环境变量：M2_HOME={安装目录}; Path=%M2_HOME%\bin;</p>
-</li>
-</ul>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 创建Maven项目</span><br><span class="line">mvn archetype:generate</span><br><span class="line"></span><br><span class="line"># 清理target目录</span><br><span class="line">mvn clean</span><br><span class="line"></span><br><span class="line"># 编译源码</span><br><span class="line">mvn compile</span><br><span class="line"></span><br><span class="line"># 打包</span><br><span class="line">mvn package</span><br><span class="line"></span><br><span class="line"># 项目打包并发布到本地仓库</span><br><span class="line">mvn install</span><br><span class="line"></span><br><span class="line"># 项目打包并发布到远程仓库</span><br><span class="line">mvn deploy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 命令参数</span><br><span class="line">-D 传入属性参数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 常用</span><br><span class="line">mvn clean package -Dmaven.test.skip=true // 跳过测试</span><br></pre></td></tr></table></figure>
-<h2 id="POM结构"><a href="#POM结构" class="headerlink" title="POM结构"></a>POM结构</h2><p>最小配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;project&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.family168.maven2book&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;ch07&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.0&lt;/version&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
-<p>依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependence&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Maven插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
-<li>输入的项目依赖和Plugin都not found，启用自动导入，auto-import。</li>
-</ul>
-
+        <a id="more"></a>
       
 
       
@@ -246,17 +205,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -307,7 +255,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/16/maven-maven学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/04/spring-06-thymeleaf篇/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +269,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/16/jre-数组拷贝（System和Arrays）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/14/Socket-记录/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jre-数组拷贝（System和Arrays）
+          Socket-记录
         
       </div>
     </a>
   
   
-    <a href="/2019/03/16/git-git学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git-git学习</div>
+    <a href="/2019/04/03/spring-05-mabatis篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring-05-mabatis篇</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,7 +307,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#maven学习"><span class="toc-number">1.</span> <span class="toc-text">maven学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.</span> <span class="toc-text">待完善</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#术语前言"><span class="toc-number">1.2.</span> <span class="toc-text">术语前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">1.4.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POM结构"><span class="toc-number">1.5.</span> <span class="toc-text">POM结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">1.6.</span> <span class="toc-text">遇到的问题</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>

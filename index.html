@@ -152,6 +152,147 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Socket-记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/14/Socket-记录/">Socket-记录</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/14/Socket-记录/" class="archive-article-date">
+  	<time datetime="2019-04-14T03:09:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h1><p>比较菜，有些地方基于自己经验和主观的猜测，有错望指出。</p>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>NIO：Java New IO；传统IO，收到消息处理后回复，每个tcp连接需要一个专用线程，同时消息不能太密集。<br>异步非阻塞，实现接受，发送，处理分离。接受有接受缓存，发送有发送缓存。消息发送不用等待回复，可再发消息。应该是读写都是单独的线程，多路TCP复用，有个表做路由处理。没那么多线程，同时不会阻塞超时到消息丢失。</p>
+<p>TCP、UDP：网上的概念比较抽象，基于连接和无连接。我理解的是都是Socket通信，TCP包头比较详细，有目标地址和序列号保证通信顺序，丢失有重发机制，基于连接是指双方底层保存了对方的一些地址和消息收发的信息是有状态的，所以像连接在一起。</p>
+<h2 id="分包粘包"><a href="#分包粘包" class="headerlink" title="分包粘包"></a>分包粘包</h2><p>看了网络上是说和socket的方式 select轮询机制无关，是因为TCP的Nagle算法（可配置是否启用）对较小的数据包进行合并的关系。</p>
+        
+          <a class="article-more-a" href="/2019/04/14/Socket-记录/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/14/Socket-记录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring-06-thymeleaf篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/04/spring-06-thymeleaf篇/">spring-06-thymeleaf篇</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/04/spring-06-thymeleaf篇/" class="archive-article-date">
+  	<time datetime="2019-04-04T14:03:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/04/spring-06-thymeleaf篇/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-spring-05-mabatis篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,7 +316,7 @@
         <h1 id="Spring-Mybatis"><a href="#Spring-Mybatis" class="headerlink" title="Spring - Mybatis"></a>Spring - Mybatis</h1><ol>
 <li>引入依赖</li>
 </ol>
-<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">2. mapper层</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">// org.example.project.mapper/</span><br><span class="line">public interface ProductMapper</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. mapper层</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">// org.example.project.mapper/</span><br><span class="line">public interface ProductMapper</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="3">
 <li>初始化扫描mapper包来生成实际数据库操作对象</li>
 </ol>
@@ -260,10 +401,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring - 基础"></a>Spring - 基础</h1><h2 id="新建项目和运行"><a href="#新建项目和运行" class="headerlink" title="新建项目和运行"></a>新建项目和运行</h2><p>在Idea中选择SpringBootInit中初始化，并选择插件WEB，即自动生成SpringBoot项目。<br>启动方式分三种：</p>
-<pre><code>1. 右键启动类运行
-2. 命令行运行，<figure class="highlight plain"><figcaption><span>spring-boot:run;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 编译打包后用java命令运行，```mvn install; java -jar targe/aim.jar;</span><br></pre></td></tr></table></figure>
-</code></pre><h2 id="简单注解"><a href="#简单注解" class="headerlink" title="简单注解"></a>简单注解</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@Autowired</span><br><span class="line"></span><br><span class="line">- 只能引入 @Component或 @Service注解的类，实际还能引入interface，但跨包好像不行</span><br><span class="line">- 引入同一个类两次，两个对象也是一样的</span><br><span class="line">- 多个子类实现类会让自动引入出错，通过ID和变量名指定。@Service(&quot;sv1&quot;) 对应 MyClass sv1;</span><br><span class="line"></span><br><span class="line">@RestController </span><br><span class="line">声明Rest接口类</span><br><span class="line"></span><br><span class="line">@RequestMapping(value=&quot;/hello/&#123;id&#125;&quot;, method=GET, required=false, defaultValue=&quot;0&quot;)</span><br><span class="line">声明接口地址，可以用多个value。</span><br><span class="line">地址&#123;id&#125;变量需要在方法参数中用注释 @PathVariable(&quot;id&quot;)对应</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@Transactional(rollbackFor = Exception.class)</span><br><span class="line">事务，通常在@Service层中注解，确保多个操作原子性</span><br></pre></td></tr></table></figure>
+        <h1 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring - 基础"></a>Spring - 基础</h1><h2 id="新建项目和运行"><a href="#新建项目和运行" class="headerlink" title="新建项目和运行"></a>新建项目和运行</h2><p>在Idea中选择SpringBootInit中初始化，并选择插件WEB，即自动生成SpringBoot项目。<br>启动方式分三种：<br>​    1. 右键启动类运行<br>​    2. 命令行运行，<figure class="highlight plain"><figcaption><span>spring-boot:run;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​	3. 编译打包后用java命令运行，```mvn install; java -jar targe/aim.jar;</span><br></pre></td></tr></table></figure></p>
+<h2 id="基础的注解"><a href="#基础的注解" class="headerlink" title="基础的注解"></a>基础的注解</h2>
         
           <a class="article-more-a" href="/2019/04/03/spring-02-基础篇/#more">more >></a>
         
@@ -494,10 +633,18 @@
         <h1 id="Spring-IDEA"><a href="#Spring-IDEA" class="headerlink" title="Spring - IDEA"></a>Spring - IDEA</h1><ul>
 <li><p>如何在IDEA中快速查找插入依赖？<br>在<dependencies>标签里按下alt+insert，呼出dependence依赖查找界面。</dependencies></p>
 </li>
-<li><p>lombok插件支持<br>用lombok的<code>@Data @Slf4j</code>等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。lombok的toString()方法只会遍历子类的属性打印。</p>
+<li><p>lombok插件支持<br>用lombok的<code>@Data @Slf4j</code>等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。</p>
+</li>
+<li><p>lombok的toString()方法只会遍历子类的属性打印?<br>@ToString(callSuper = true)</p>
 </li>
 <li><p>新建单元测试？</p>
 <p>右键方法或类，generate-Junit Test。</p>
+</li>
+<li><p>Java代码风格?<br> Settings - Code Style - Java - Wrapping and Braces - Braces placement</p>
+</li>
+<li><p>格式化代码？<br>ctrl + alt + L</p>
+</li>
+<li><p>定位到编辑过的地方<br>ctrl + alt + right(left)</p>
 </li>
 </ul>
         
@@ -801,175 +948,6 @@
 
 
   
-    <article id="post-算法-HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/算法-HashMap/">算法-HashMap</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/26/算法-HashMap/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:29:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>链表为元素的数组。put的时候计算key的hash值放入数组索引，新建链表或头插到链表。get的时候，计算hash，遍历链表。</p>
-<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>HashMap的初始长度是16，对应二进制1111；为的是将取模操作简化成更高效的与运算，直接取key hash值的二进制后四位作为索引，且后四位的值都用到了。<br>同理，每次扩容都X2，与运算多取一位数。</p>
-<p>扩容：HashMap.Size &gt; Capacity * LoadFactor</p>
-<p>参考</p>
-<blockquote>
-<p>漫画：hashmap</p>
-<p><a href="https://juejin.im/post/5a215783f265da431d3c7bba" target="_blank" rel="noopener">https://juejin.im/post/5a215783f265da431d3c7bba</a></p>
-<p>漫画：高并发下的hashmap</p>
-<p><a href="https://juejin.im/post/5a224e1551882535c56cb940" target="_blank" rel="noopener">https://juejin.im/post/5a224e1551882535c56cb940</a></p>
-<p>HashMap在android和java中的不同实现</p>
-<p><a href="http://guilunlv.farbox.com/post/internship_baoer/hashmapzai-androidhe-javazhong-bu-tong-de-shi-xian-xi-jie" target="_blank" rel="noopener">http://guilunlv.farbox.com/post/internship_baoer/hashmapzai-androidhe-javazhong-bu-tong-de-shi-xian-xi-jie</a></p>
-<p>西电：HashMap</p>
-<p><a href="http://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/" target="_blank" rel="noopener">http://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/算法-HashMap/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-算法-缓存过期策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/算法-缓存过期策略/">算法-缓存过期策略</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/26/算法-缓存过期策略/" class="archive-article-date">
-  	<time datetime="2019-03-26T00:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="缓存过期策略"><a href="#缓存过期策略" class="headerlink" title="缓存过期策略"></a>缓存过期策略</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="1-FIFO-先进先出"><a href="#1-FIFO-先进先出" class="headerlink" title="1. FIFO 先进先出"></a>1. FIFO 先进先出</h3><p>最老的数据，最先淘汰；</p>
-<p>实现：循环队列（固定大小的数组），插满的时候，移除掉队首的值。<br>或者双向链表，加技术指示标志。</p>
-<p>但这两种方法，在取值上得遍历一遍。</p>
-<h3 id="2-LRU-淘汰最老的数据"><a href="#2-LRU-淘汰最老的数据" class="headerlink" title="2. LRU 淘汰最老的数据"></a>2. LRU 淘汰最老的数据</h3><p>和FIFO类似，不同的是，FIFO是进入时间最晚的淘汰，LRU是累计使用下来最晚的数据被淘汰。取key的时候，如在链表中存在，则取到队首，不存在则加到队首淘汰队尾</p>
-<p>实现：链表实现</p>
-<h3 id="3-LFU-淘汰最少使用次数的值"><a href="#3-LFU-淘汰最少使用次数的值" class="headerlink" title="3. LFU 淘汰最少使用次数的值"></a>3. LFU 淘汰最少使用次数的值</h3><p>实现：key和计数器绑定，建立最大堆，取key的时候命中，则+1，上浮，未命中加到尾部，满了则抛弃。</p>
-<blockquote>
-<p>参考<br>详解三种缓存过期策略LFU，FIFO，LRU：<a href="https://www.cnblogs.com/s-b-b/p/6047954.html" target="_blank" rel="noopener">https://www.cnblogs.com/s-b-b/p/6047954.html</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/算法-缓存过期策略/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1077,11 +1055,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1093,15 +1075,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">my</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">

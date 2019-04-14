@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>maven-maven学习 | Cai7n 蔡柒&#39;s Blog</title>
+  <title>Socket-记录 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="maven学习待完善 scope 和 条件编译 依赖范围、依赖传递 POM 命令 部署Tomcat，打包war包或者命令">
-<meta name="keywords" content="maven">
+  <meta name="description" content="Socket比较菜，有些地方基于自己经验和主观的猜测，有错望指出。 术语NIO：Java New IO；传统IO，收到消息处理后回复，每个tcp连接需要一个专用线程，同时消息不能太密集。异步非阻塞，实现接受，发送，处理分离。接受有接受缓存，发送有发送缓存。消息发送不用等待回复，可再发消息。应该是读写都是单独的线程，多路TCP复用，有个表做路由处理。没那么多线程，同时不会阻塞超时到消息丢失。 TCP">
+<meta name="keywords" content="socket">
 <meta property="og:type" content="article">
-<meta property="og:title" content="maven-maven学习">
-<meta property="og:url" content="http://yoursite.com/2019/03/16/maven-maven学习/index.html">
+<meta property="og:title" content="Socket-记录">
+<meta property="og:url" content="http://yoursite.com/2019/04/14/Socket-记录/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:description" content="maven学习待完善 scope 和 条件编译 依赖范围、依赖传递 POM 命令 部署Tomcat，打包war包或者命令">
+<meta property="og:description" content="Socket比较菜，有些地方基于自己经验和主观的猜测，有错望指出。 术语NIO：Java New IO；传统IO，收到消息处理后回复，每个tcp连接需要一个专用线程，同时消息不能太密集。异步非阻塞，实现接受，发送，处理分离。接受有接受缓存，发送有发送缓存。消息发送不用等待回复，可再发消息。应该是读写都是单独的线程，多路TCP复用，有个表做路由处理。没那么多线程，同时不会阻塞超时到消息丢失。 TCP">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-19T13:51:34.700Z">
+<meta property="og:updated_time" content="2019-04-14T03:37:25.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="maven-maven学习">
-<meta name="twitter:description" content="maven学习待完善 scope 和 条件编译 依赖范围、依赖传递 POM 命令 部署Tomcat，打包war包或者命令">
+<meta name="twitter:title" content="Socket-记录">
+<meta name="twitter:description" content="Socket比较菜，有些地方基于自己经验和主观的猜测，有错望指出。 术语NIO：Java New IO；传统IO，收到消息处理后回复，每个tcp连接需要一个专用线程，同时消息不能太密集。异步非阻塞，实现接受，发送，处理分离。接受有接受缓存，发送有发送缓存。消息发送不用等待回复，可再发消息。应该是读写都是单独的线程，多路TCP复用，有个表做路由处理。没那么多线程，同时不会阻塞超时到消息丢失。 TCP">
   
     <link rel="alternative" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -155,63 +155,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-maven-maven学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Socket-记录" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      maven-maven学习
+      Socket-记录
     </h1>
   
 
         
-        <a href="/2019/03/16/maven-maven学习/" class="archive-article-date">
-  	<time datetime="2019-03-16T15:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+        <a href="/2019/04/14/Socket-记录/" class="archive-article-date">
+  	<time datetime="2019-04-14T03:09:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="maven学习"><a href="#maven学习" class="headerlink" title="maven学习"></a>maven学习</h1><h2 id="待完善"><a href="#待完善" class="headerlink" title="待完善"></a>待完善</h2><ul>
-<li>scope 和 条件编译</li>
-<li>依赖范围、依赖传递</li>
-<li>POM</li>
-<li>命令</li>
-<li>部署Tomcat，打包war包或者命令</li>
-</ul>
+        <h1 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h1><p>比较菜，有些地方基于自己经验和主观的猜测，有错望指出。</p>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>NIO：Java New IO；传统IO，收到消息处理后回复，每个tcp连接需要一个专用线程，同时消息不能太密集。<br>异步非阻塞，实现接受，发送，处理分离。接受有接受缓存，发送有发送缓存。消息发送不用等待回复，可再发消息。应该是读写都是单独的线程，多路TCP复用，有个表做路由处理。没那么多线程，同时不会阻塞超时到消息丢失。</p>
+<p>TCP、UDP：网上的概念比较抽象，基于连接和无连接。我理解的是都是Socket通信，TCP包头比较详细，有目标地址和序列号保证通信顺序，丢失有重发机制，基于连接是指双方底层保存了对方的一些地址和消息收发的信息是有状态的，所以像连接在一起。</p>
+<h2 id="分包粘包"><a href="#分包粘包" class="headerlink" title="分包粘包"></a>分包粘包</h2><p>看了网络上是说和socket的方式 select轮询机制无关，是因为TCP的Nagle算法（可配置是否启用）对较小的数据包进行合并的关系。</p>
 <a id="more"></a>
-<h2 id="术语前言"><a href="#术语前言" class="headerlink" title="术语前言"></a>术语前言</h2><ul>
-<li><p>Maven的好处：自动构建、跨平台、标准化、多模块</p>
-</li>
-<li><p>依赖插件：构建过程各阶段工作需要插件实现，大部分插件都是现成的</p>
-</li>
-<li><p>Maven目录结构：<br>boot： plexus-classworlds-2.5.2.jar，是一个类加载器，加载Maven的类库<br>conf： Maven全局配置</p>
-</li>
-<li><p>仓库分类：本地和远程的</p>
-</li>
-<li><p>Maven坐标：<br>groupId、artifactId、version、packaging、classifier。<br>org.spring:spring-jdbc-doc:0.1-SNAPSHOT</p>
-</li>
-<li><p>快照（SNAPSHOT）：快照（SNAPSHOT）是一种特殊的版本，指定了某个当前的开发进度的副本。不同于常规的版本，Maven每次构建都会在远程仓库中检查新的快照。<br>用来加在未形成稳定版本开发中的库上，不用每次都改依赖版本。</p>
-</li>
-<li><p>Nexus：用来自己搭建仓库的工具</p>
-</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li><p>解压</p>
-</li>
-<li><p>配置环境变量：M2_HOME={安装目录}; Path=%M2_HOME%\bin;</p>
-</li>
-</ul>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 创建Maven项目</span><br><span class="line">mvn archetype:generate</span><br><span class="line"></span><br><span class="line"># 清理target目录</span><br><span class="line">mvn clean</span><br><span class="line"></span><br><span class="line"># 编译源码</span><br><span class="line">mvn compile</span><br><span class="line"></span><br><span class="line"># 打包</span><br><span class="line">mvn package</span><br><span class="line"></span><br><span class="line"># 项目打包并发布到本地仓库</span><br><span class="line">mvn install</span><br><span class="line"></span><br><span class="line"># 项目打包并发布到远程仓库</span><br><span class="line">mvn deploy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 命令参数</span><br><span class="line">-D 传入属性参数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 常用</span><br><span class="line">mvn clean package -Dmaven.test.skip=true // 跳过测试</span><br></pre></td></tr></table></figure>
-<h2 id="POM结构"><a href="#POM结构" class="headerlink" title="POM结构"></a>POM结构</h2><p>最小配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;project&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.family168.maven2book&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;ch07&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;1.0&lt;/version&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
-<p>依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependence&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Maven插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ul>
-<li>输入的项目依赖和Plugin都not found，启用自动导入，auto-import。</li>
-</ul>
+<p>有几种方式可以弥补TCP传输的完整性缺陷：</p>
+<ol>
+<li>设置固定传输字节，在接收端以字节长度作为一条消息的依据。</li>
+<li>header协议定义字节数量，比较常用的做法，在HTTP、Mysql连接等很多地方都是这种方式：关键字码+内容长度+内容。</li>
+<li>设定分隔符，例如 /r/n、0xff</li>
+</ol>
+<blockquote>
+<p>拓展知识：<br>writeBytes(String s) ：将字符串按[字节]顺序写入基础输出流。在Java中字节是8位的<br>writeChars(String s) ：将字符串按[字符]顺序写入基础输出流。在Java中字符是16位的</p>
+</blockquote>
+<h3 id="分隔符方式"><a href="#分隔符方式" class="headerlink" title="分隔符方式"></a>分隔符方式</h3><p>MINA可以使用ProtocolCodecFilter来处理二进制数据，自动处理消息完整性。<br>在监听链添加字符处理，可以在框架对消息进行 /r/n 判别来分割消息的处理，同时有有多条消息拼接的自动处理机制。十分方便。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">部分代码</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 绑定监听</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line">		IoAcceptor acceptor = <span class="keyword">new</span> NioSocketAcceptor();</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 添加一个Filter，用于接收、发送的内容按照"\r\n"分割</span></span><br><span class="line">		acceptor.getFilterChain().addLast(<span class="string">"codec"</span>,</span><br><span class="line">				<span class="keyword">new</span> ProtocolCodecFilter(<span class="keyword">new</span> TextLineCodecFactory(Charset.forName(<span class="string">"UTF-8"</span>), <span class="string">"\r\n"</span>, <span class="string">"\r\n"</span>)));</span><br><span class="line"></span><br><span class="line">		acceptor.setHandler(<span class="keyword">new</span> TcpServerHandle());</span><br><span class="line">		acceptor.bind(<span class="keyword">new</span> InetSocketAddress(<span class="number">8080</span>));</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line"><span class="comment">/**********************************************************/</span></span><br><span class="line"></span><br><span class="line">		</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 接收消息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line">	<span class="comment">// 接收到新的数据</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">messageReceived</span><span class="params">(IoSession session, Object message)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 接收客户端的数据，这里接收到的不再是IoBuffer类型，而是字符串</span></span><br><span class="line">		String line = (String) message;</span><br><span class="line">		System.out.println(<span class="string">"messageReceived:"</span> + line);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="header保存消息长度来处理消息完整性"><a href="#header保存消息长度来处理消息完整性" class="headerlink" title="header保存消息长度来处理消息完整性"></a>header保存消息长度来处理消息完整性</h3><p>Mina框架中PrefixedStringCodecFactory默认实现了这种机制，将消息的头4字节作为消息的length，自动处理接下来的消息。<br>如果是自己定义的协议可以使用CumulativeProtocolDecoder。<br>如果用Mina框架中自动header的处理方法用ProtocolEncoderAdapter。</p>
+<h2 id="protobuf-序列化工具"><a href="#protobuf-序列化工具" class="headerlink" title="protobuf 序列化工具"></a>protobuf 序列化工具</h2><h2 id="Session-机制存储连接状态，管理连接"><a href="#Session-机制存储连接状态，管理连接" class="headerlink" title="Session 机制存储连接状态，管理连接"></a>Session 机制存储连接状态，管理连接</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>TCP和UDP最完整的区别：<a href="https://www.cnblogs.com/williamjie/p/9390164.html" target="_blank" rel="noopener">https://www.cnblogs.com/williamjie/p/9390164.html</a><br>TCP分包粘包问题的原因：<br><a href="https://blog.csdn.net/ustcyy91/article/details/78773538" target="_blank" rel="noopener">https://blog.csdn.net/ustcyy91/article/details/78773538</a><br>MINA、Netty、Twisted一起学:<a href="http://xxgblog.com/2014/08/15/mina-netty-twisted-1/" target="_blank" rel="noopener">http://xxgblog.com/2014/08/15/mina-netty-twisted-1/</a><br>Netty 系列之 Netty 高性能之道：<a href="https://blog.csdn.net/opengl_es/article/details/40979371?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">https://blog.csdn.net/opengl_es/article/details/40979371?utm_source=tuicool&amp;utm_medium=referral</a></p>
+</blockquote>
 
       
 
@@ -251,7 +234,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
         		</li>
       		
 		</ul>
@@ -307,7 +290,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/16/maven-maven学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/14/Socket-记录/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -321,18 +304,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/16/jre-数组拷贝（System和Arrays）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          jre-数组拷贝（System和Arrays）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/16/git-git学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git-git学习</div>
+    <a href="/2019/04/04/spring-06-thymeleaf篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring-06-thymeleaf篇</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -359,7 +333,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#maven学习"><span class="toc-number">1.</span> <span class="toc-text">maven学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#待完善"><span class="toc-number">1.1.</span> <span class="toc-text">待完善</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#术语前言"><span class="toc-number">1.2.</span> <span class="toc-text">术语前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.3.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">1.4.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POM结构"><span class="toc-number">1.5.</span> <span class="toc-text">POM结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的问题"><span class="toc-number">1.6.</span> <span class="toc-text">遇到的问题</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Socket"><span class="toc-number">1.</span> <span class="toc-text">Socket</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#术语"><span class="toc-number">1.1.</span> <span class="toc-text">术语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分包粘包"><span class="toc-number">1.2.</span> <span class="toc-text">分包粘包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分隔符方式"><span class="toc-number">1.2.1.</span> <span class="toc-text">分隔符方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#header保存消息长度来处理消息完整性"><span class="toc-number">1.2.2.</span> <span class="toc-text">header保存消息长度来处理消息完整性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#protobuf-序列化工具"><span class="toc-number">1.3.</span> <span class="toc-text">protobuf 序列化工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Session-机制存储连接状态，管理连接"><span class="toc-number">1.4.</span> <span class="toc-text">Session 机制存储连接状态，管理连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-number">1.5.</span> <span class="toc-text">参考</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

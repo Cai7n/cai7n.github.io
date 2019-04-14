@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
 <meta property="og:description" content="Spring - JPA 引入JPA依赖  1234&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-boot-starter-data-jpa&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-03T14:43:05.377Z">
+<meta property="og:updated_time" content="2019-04-04T02:54:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-04-jpa篇">
 <meta name="twitter:description" content="Spring - JPA 引入JPA依赖  1234&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-boot-starter-data-jpa&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt;">
@@ -191,7 +191,7 @@
 <ol start="4">
 <li>JPA Repository 自动实现数据库操作接口</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">Product</span>, <span class="title">String</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 自己实现一些特殊的接口，必须严格按照Product定义的字段来命名</span></span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">    <span class="function">List&lt;Product&gt; <span class="title">findByProductNameIn</span><span class="params">(List&lt;String&gt; names)</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">Product</span>, <span class="title">String</span>&gt; // <span class="title">Product</span>必须@<span class="title">Entity</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 自己实现一些特殊的接口，必须严格按照Product定义的字段来命名</span></span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">    <span class="function">List&lt;Product&gt; <span class="title">findByProductNameIn</span><span class="params">(List&lt;String&gt; names)</span></span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="5">
 <li>调用</li>
 </ol>
@@ -465,11 +465,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -481,15 +485,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">my</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">

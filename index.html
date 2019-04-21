@@ -152,6 +152,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-http-http缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/21/http-http缓存/">http-http缓存</a>
+    </h1>
+  
+
+        
+        <a href="/2019/04/21/http-http缓存/" class="archive-article-date">
+  	<time datetime="2019-04-21T14:53:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Http缓存"><a href="#Http缓存" class="headerlink" title="Http缓存"></a>Http缓存</h1><p>Http缓存，加速了网页加载速度，但若不仔细了解下运用，经常会遇到莫名的异常状况。</p>
+<h2 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h2><h3 id="Pragma"><a href="#Pragma" class="headerlink" title="Pragma"></a>Pragma</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pragma: no-cache</span><br></pre></td></tr></table></figure>
+<p>由Cache-Control 替代。</p>
+<h3 id="Expires-Cache-Control"><a href="#Expires-Cache-Control" class="headerlink" title="Expires / Cache-Control"></a>Expires / Cache-Control</h3>
+        
+          <a class="article-more-a" href="/2019/04/21/http-http缓存/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/21/http-http缓存/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Socket-记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -316,19 +395,12 @@
         <h1 id="Spring-Mybatis"><a href="#Spring-Mybatis" class="headerlink" title="Spring - Mybatis"></a>Spring - Mybatis</h1><ol>
 <li>引入依赖</li>
 </ol>
-<figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. mapper层</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">// org.example.project.mapper/</span><br><span class="line">public interface ProductMapper</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>初始化扫描mapper包来生成实际数据库操作对象</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@MapperScan</span>(<span class="string">"org.example.project.mapper"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>实现mapper接口Sql语句对应</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 插入可以用对象作为参数，也可以用Map</span></span><br><span class="line">   <span class="meta">@Insert</span>(<span class="string">"insert into product_category(name, type) values (#&#123;name, jdbcType=VARCHAR&#125;, #&#123;type, jdbcType=VARCHAR&#125;)"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertByObject</span><span class="params">(Product product)</span></span>; <span class="comment">// 或者</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertByMap</span><span class="params">(Map&lt;String, Object&gt;)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取数据。注意需要声明获取字段，还有获取List和一个的情况，返回参数应该明确对象或者List</span></span><br><span class="line">   <span class="meta">@Select</span>(<span class="string">"select img_id from ai_now_image limit 0,1"</span>)</span><br><span class="line">   <span class="meta">@Results</span>(&#123;</span><br><span class="line">           <span class="meta">@Result</span>(column = <span class="string">"img_id"</span>, property = <span class="string">"imgId"</span>)</span><br><span class="line">   &#125;)</span><br><span class="line">   <span class="function">AINowImage <span class="title">getTheNowImage</span><span class="params">()</span></span>;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 更新对象。最好参数@Param，返回int是更新的条数</span></span><br><span class="line">   <span class="meta">@Update</span>(<span class="string">"update ai_now_image set img_id = #&#123;imgId&#125; where img_id = #&#123;orgImgId&#125;"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">updateByImgId</span><span class="params">(@Param(<span class="string">"orgImgId"</span>)</span>String orgImgId, @<span class="title">Param</span><span class="params">(<span class="string">"imgId"</span>)</span>String imgId)</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 删除对象。返回int也是影响的条数</span></span><br><span class="line">   <span class="meta">@Delete</span>(<span class="string">"delete from ai_now_image where img_id = #&#123;imgId&#125;"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">deleteByImgId</span><span class="params">(String imgId)</span></span>;</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>配置来显示Mybatis的sql语句执行</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">logging:</span></span><br><span class="line"><span class="attr">  level:</span></span><br><span class="line">    <span class="string">org.example.project.mapper:</span> <span class="string">trace</span> <span class="comment"># 追踪mapper下的sql语句</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mybatis-spring-boot-starter</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>mapper层</li></ol>
+        
+          <a class="article-more-a" href="/2019/04/03/spring-05-mabatis篇/#more">more >></a>
+        
       
 
       
@@ -401,7 +473,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring - 基础"></a>Spring - 基础</h1><h2 id="新建项目和运行"><a href="#新建项目和运行" class="headerlink" title="新建项目和运行"></a>新建项目和运行</h2><p>在Idea中选择SpringBootInit中初始化，并选择插件WEB，即自动生成SpringBoot项目。<br>启动方式分三种：<br>​    1. 右键启动类运行<br>​    2. 命令行运行，<figure class="highlight plain"><figcaption><span>spring-boot:run;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​	3. 编译打包后用java命令运行，```mvn install; java -jar targe/aim.jar;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring - 基础"></a>Spring - 基础</h1><h2 id="新建项目和运行"><a href="#新建项目和运行" class="headerlink" title="新建项目和运行"></a>新建项目和运行</h2><p>在Idea中选择SpringBootInit中初始化，并选择插件WEB，即自动生成SpringBoot项目。<br>启动方式分三种：<br>​    1. 右键启动类运行<br>​    2. 命令行运行，<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn spring-boot:run;</span><br></pre></td></tr></table></figure></p>
+<p>​    3. 编译打包后用java命令运行，<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install; java -jar targe/aim.jar;</span><br></pre></td></tr></table></figure></p>
 <h2 id="基础的注解"><a href="#基础的注解" class="headerlink" title="基础的注解"></a>基础的注解</h2>
         
           <a class="article-more-a" href="/2019/04/03/spring-02-基础篇/#more">more >></a>
@@ -871,83 +944,6 @@
 
 
   
-    <article id="post-jre-线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/26/jre-线程/">jre-线程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/03/26/jre-线程/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java线程"><a href="#Java线程" class="headerlink" title="Java线程"></a>Java线程</h1><h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><p><img src="/2019/03/26/jre-线程/1.jpg" alt></p>
-<h2 id="Java线程使用"><a href="#Java线程使用" class="headerlink" title="Java线程使用"></a>Java线程使用</h2>
-        
-          <a class="article-more-a" href="/2019/03/26/jre-线程/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/26/jre-线程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1055,15 +1051,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">socket</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">socket</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1072,10 +1072,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1088,6 +1084,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">

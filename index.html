@@ -231,85 +231,6 @@
 
 
   
-    <article id="post-Socket-记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/14/Socket-记录/">Socket-记录</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/14/Socket-记录/" class="archive-article-date">
-  	<time datetime="2019-04-14T03:09:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h1><p>比较菜，有些地方基于自己经验和主观的猜测，有错望指出。</p>
-<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>NIO：Java New IO；传统IO，收到消息处理后回复，每个tcp连接需要一个专用线程，同时消息不能太密集。<br>异步非阻塞，实现接受，发送，处理分离。接受有接受缓存，发送有发送缓存。消息发送不用等待回复，可再发消息。应该是读写都是单独的线程，多路TCP复用，有个表做路由处理。没那么多线程，同时不会阻塞超时到消息丢失。</p>
-<p>TCP、UDP：网上的概念比较抽象，基于连接和无连接。我理解的是都是Socket通信，TCP包头比较详细，有目标地址和序列号保证通信顺序，丢失有重发机制，基于连接是指双方底层保存了对方的一些地址和消息收发的信息是有状态的，所以像连接在一起。</p>
-<h2 id="分包粘包"><a href="#分包粘包" class="headerlink" title="分包粘包"></a>分包粘包</h2><p>看了网络上是说和socket的方式 select轮询机制无关，是因为TCP的Nagle算法（可配置是否启用）对较小的数据包进行合并的关系。</p>
-        
-          <a class="article-more-a" href="/2019/04/14/Socket-记录/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">socket</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/14/Socket-记录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-spring-06-thymeleaf篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -915,6 +836,83 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/03/26/jre-线程池/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jre-线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/jre-线程/">jre-线程</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/jre-线程/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java线程"><a href="#Java线程" class="headerlink" title="Java线程"></a>Java线程</h1><h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><p><img src="/2019/03/26/jre-线程/1.jpg" alt></p>
+<h2 id="Java线程使用"><a href="#Java线程使用" class="headerlink" title="Java线程使用"></a>Java线程使用</h2>
+        
+          <a class="article-more-a" href="/2019/03/26/jre-线程/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/jre-线程/">展开全文 >></a>
         </p>
       
 

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>spring-01-idea篇 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Spring - IDEA 如何在IDEA中快速查找插入依赖？在标签里按下alt+insert，呼出dependence依赖查找界面。  lombok插件支持用lombok的@Slf4j ```等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。1234567891011121314151617181920212223242526  - lo">
+  <meta name="description" content="Spring - IDEA 如何在IDEA中快速查找插入依赖？在标签里按下alt+insert，呼出dependence依赖查找界面。  lombok插件支持用lombok的 @Data @Slf4j 等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。  lombok的toString()方法只会遍历子类的属性打印?@ToString(ca">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring-01-idea篇">
 <meta property="og:url" content="http://yoursite.com/2019/04/03/spring-01-idea篇/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:description" content="Spring - IDEA 如何在IDEA中快速查找插入依赖？在标签里按下alt+insert，呼出dependence依赖查找界面。  lombok插件支持用lombok的@Slf4j ```等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。1234567891011121314151617181920212223242526  - lo">
+<meta property="og:description" content="Spring - IDEA 如何在IDEA中快速查找插入依赖？在标签里按下alt+insert，呼出dependence依赖查找界面。  lombok插件支持用lombok的 @Data @Slf4j 等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。  lombok的toString()方法只会遍历子类的属性打印?@ToString(ca">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-12T15:59:14.000Z">
+<meta property="og:updated_time" content="2019-08-28T15:39:37.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring-01-idea篇">
-<meta name="twitter:description" content="Spring - IDEA 如何在IDEA中快速查找插入依赖？在标签里按下alt+insert，呼出dependence依赖查找界面。  lombok插件支持用lombok的@Slf4j ```等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。1234567891011121314151617181920212223242526  - lo">
+<meta name="twitter:description" content="Spring - IDEA 如何在IDEA中快速查找插入依赖？在标签里按下alt+insert，呼出dependence依赖查找界面。  lombok插件支持用lombok的 @Data @Slf4j 等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。  lombok的toString()方法只会遍历子类的属性打印?@ToString(ca">
   
     <link rel="alternative" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -178,20 +178,25 @@
         <h1 id="Spring-IDEA"><a href="#Spring-IDEA" class="headerlink" title="Spring - IDEA"></a>Spring - IDEA</h1><ul>
 <li><p>如何在IDEA中快速查找插入依赖？<br>在<dependencies>标签里按下alt+insert，呼出dependence依赖查找界面。</dependencies></p>
 </li>
-<li><p>lombok插件支持<br>用lombok的<figure class="highlight plain"><figcaption><span>@Slf4j ```等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">- lombok的toString()方法只会遍历子类的属性打印?</span><br><span class="line"> @ToString(callSuper = true)</span><br><span class="line"></span><br><span class="line">- 新建单元测试？</span><br><span class="line"></span><br><span class="line">  右键方法或类，generate-Junit Test。</span><br><span class="line"></span><br><span class="line">- Java代码风格?</span><br><span class="line">   Settings - Code Style - Java - Wrapping and Braces - Braces placement</span><br><span class="line"></span><br><span class="line">- 格式化代码？</span><br><span class="line"> ctrl + alt + L</span><br><span class="line"></span><br><span class="line">- 定位到编辑过的地方</span><br><span class="line"> ctrl + alt + right(left)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 阿里云 Maven镜像配置</span><br><span class="line"></span><br><span class="line">-</span><br></pre></td></tr></table></figure></p>
-<p>/Users/tao/.m2/settings.xml</p>
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://maven.apache.org/SETTINGS/1.0.0
-                          https://maven.apache.org/xsd/settings-1.0.0.xsd">
-
-<pre><code>&lt;mirrors&gt;
-  &lt;mirror&gt;  
-      &lt;id&gt;alimaven&lt;/id&gt;  
-      &lt;name&gt;aliyun maven&lt;/name&gt;  
-      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;  
-      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;          
-  &lt;/mirror&gt;  
-&lt;/mirrors&gt;
-</code></pre><p></p></settings><br><code>`</code><p></p>
+<li><p>lombok插件支持<br>用lombok的 @Data @Slf4j 等时，不能自动弹出getter、setter方法和log，需要在plugins里中搜索lombok插件安装。</p>
+</li>
+<li><p>lombok的toString()方法只会遍历子类的属性打印?<br>@ToString(callSuper = true)</p>
+</li>
+<li><p>新建单元测试？</p>
+<p>右键方法或类，generate-Junit Test。</p>
+</li>
+<li><p>Java代码风格?<br> Settings - Code Style - Java - Wrapping and Braces - Braces placement</p>
+</li>
+<li><p>格式化代码？<br>ctrl + alt + L</p>
+</li>
+<li><p>定位到编辑过的地方<br>ctrl + alt + right(left)</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>阿里云 Maven镜像配置</p>
+</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/Users/tao/.m2/settings.xml</span><br><span class="line"></span><br><span class="line">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">      xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0</span><br><span class="line">                          https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line"></span><br><span class="line">      &lt;mirrors&gt;</span><br><span class="line">        &lt;mirror&gt;  </span><br><span class="line">            &lt;id&gt;alimaven&lt;/id&gt;  </span><br><span class="line">            &lt;name&gt;aliyun maven&lt;/name&gt;  </span><br><span class="line">            &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;  </span><br><span class="line">            &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;          </span><br><span class="line">        &lt;/mirror&gt;  </span><br><span class="line">      &lt;/mirrors&gt;</span><br><span class="line"></span><br><span class="line">&lt;/settings&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>每一个Java文件会出现好多红色的下划线<br>File-Invalidate Caches</p>
 </li>
@@ -315,8 +320,8 @@
     </a>
   
   
-    <a href="/2019/03/26/jre-并发/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jre-并发</div>
+    <a href="/2019/03/26/Java进阶-锁和并发/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java进阶-锁和并发</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -476,11 +481,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">Java反射</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +493,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">my</a>
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Java进阶 线程池</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java进阶 锁 并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">NIO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,31 +541,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tomcat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
             
             <div class="clearfix"></div>

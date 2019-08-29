@@ -152,19 +152,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-NIO-Socket、IO、NIO、Mina总结归纳" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-NIO-Socket和Java总结归纳" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/28/NIO-Socket、IO、NIO、Mina总结归纳/">NIO-Socket、IO、NIO、Mina总结归纳</a>
+      <a class="article-title" href="/2019/08/28/NIO-Socket和Java总结归纳/">NIO-Socket和Java总结归纳</a>
     </h1>
   
 
         
-        <a href="/2019/08/28/NIO-Socket、IO、NIO、Mina总结归纳/" class="archive-article-date">
+        <a href="/2019/08/28/NIO-Socket和Java总结归纳/" class="archive-article-date">
   	<time datetime="2019-08-28T15:36:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
 </a>
         
@@ -176,7 +176,7 @@
 <p>在项目应用中也遇到一些问题，但只是有针对性地用网上的方法，却不知所以然。尤其是粘包拆包的问题，一直认为Socket通信是发一条收一条的过程，之所以拆包，怀疑是接受端是通过轮询间隔来决定两个字节是否是同一条消息，超过间隔的阈值即认为是两条消息，妄想通过设置大些的阈值来解决拆包的问题。这都是对Socket和NIO的不了解导致的，但在使用Mina的过程中对IO事件触发有个概念以及保证消息的可用性保证有了了解。</p>
 <p>周末找了些资料，对IO到NIO的发展、NIO如何减少线程和资源、Socket和TCP/UDP和IO和NIO之间的关系有了解了大概。总结记录下。</p>
         
-          <a class="article-more-a" href="/2019/08/28/NIO-Socket、IO、NIO、Mina总结归纳/#more">more >></a>
+          <a class="article-more-a" href="/2019/08/28/NIO-Socket和Java总结归纳/#more">more >></a>
         
       
 
@@ -200,7 +200,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/28/NIO-Socket、IO、NIO、Mina总结归纳/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/08/28/NIO-Socket和Java总结归纳/">展开全文 >></a>
         </p>
       
 
@@ -621,27 +621,30 @@
 
 
   
-    <article id="post-spring-06-thymeleaf篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java设计模式-装饰模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/04/spring-06-thymeleaf篇/">spring-06-thymeleaf篇</a>
+      <a class="article-title" href="/2019/03/27/Java设计模式-装饰模式/">Java设计模式-装饰模式</a>
     </h1>
   
 
         
-        <a href="/2019/04/04/spring-06-thymeleaf篇/" class="archive-article-date">
-  	<time datetime="2019-04-04T14:03:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+        <a href="/2019/03/27/Java设计模式-装饰模式/" class="archive-article-date">
+  	<time datetime="2019-03-27T14:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <h1 id="装饰模式"><a href="#装饰模式" class="headerlink" title="装饰模式"></a>装饰模式</h1><p>比较简单，简单用代码表示<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">implements</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">    <span class="function">String <span class="title">speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Gentleman</span> <span class="keyword">implements</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    Man man;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function">String <span class="title">speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// do sth</span></span><br><span class="line">        man.speak();</span><br><span class="line">        <span class="comment">// do sth</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>装饰模式可以加强原类的功能，如果采用继承，也可以在需要拓展的方法里用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    logger.log(<span class="string">"start"</span>);</span><br><span class="line">    String result = <span class="keyword">super</span>.foo();</span><br><span class="line">	logger.log(<span class="string">"end"</span>);</span><br><span class="line">	<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是继承太死板，需要继续增强功能的时候，只能新继承重新写方法，用装饰模式可以达到逐渐增强（每层都对某方面加强）的效果，在装饰类外边再套一层装饰类，且组合任意几种装饰更灵活。<br>装饰模式可以在对象层面增强，利用父类对象行为。继承的话用子类新建对象来操作，父类对象就放弃使用了，利用父类类行为。</p>
+
       
 
       
@@ -649,11 +652,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/04/spring-06-thymeleaf篇/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/27/Java设计模式-装饰模式/">展开全文 >></a>
         </p>
       
 
@@ -683,34 +697,123 @@
 
 
   
-    <article id="post-spring-05-mabatis篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java设计模式-状态机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/03/spring-05-mabatis篇/">spring-05-mabatis篇</a>
+      <a class="article-title" href="/2019/03/27/Java设计模式-状态机/">Java设计模式-状态机</a>
     </h1>
   
 
         
-        <a href="/2019/04/03/spring-05-mabatis篇/" class="archive-article-date">
-  	<time datetime="2019-04-03T13:46:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+        <a href="/2019/03/27/Java设计模式-状态机/" class="archive-article-date">
+  	<time datetime="2019-03-27T13:43:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Spring-Mybatis"><a href="#Spring-Mybatis" class="headerlink" title="Spring - Mybatis"></a>Spring - Mybatis</h1><ol>
-<li>引入依赖</li>
+        <h1 id="有限状态机"><a href="#有限状态机" class="headerlink" title="有限状态机"></a>有限状态机</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>有限状态机FSM的要点是：</p>
+<p>拥有一组状态，并且可以在这组状态之间进行切换。在我们的例子中，是站立，跳跃，蹲下和跳斩。<br>状态机同时只能在一个状态。英雄不可能同时处于跳跃和站立。事实上，防止这点是使用FSM的理由之一。<br>一连串的输入或事件被发送给机器。在我们的例子中，就是按键按下和松开。<br>每个状态都有一系列的转换，转换与输入和另一状态相关。当输入进来，如果它与当前状态的某个转换匹配，机器转为转换所指的状态。<br>举个例子，在站立状态时，按下下键转换为俯卧状态。在跳跃时按下下键转换为跳斩。如果输入在当前状态没有定义转换，输入就被忽视。</p>
+<p>目前而言，游戏编程中状态机的实现方式，有两种可以选择：</p>
+<p>用枚举配合switch case语句。<br>用多态与虚函数（也就是状态模式）。</p>
+<h2 id="在订单或流程系统中的应用"><a href="#在订单或流程系统中的应用" class="headerlink" title="在订单或流程系统中的应用"></a>在订单或流程系统中的应用</h2><p>定义状态，比如“提交”、“审核通过”、“审核不通过”、“已删除”<br>定义动作，比如“修改”、“审核”、“删除”</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 订单bean</span></span><br><span class="line"><span class="keyword">public</span> Order</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 订单所有的状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_SUBMIT = <span class="number">0</span>; 	<span class="comment">// 提交状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_PASS = <span class="number">1</span>;	<span class="comment">// 通过状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_FAIL = -<span class="number">1</span>;	<span class="comment">// 未通过状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ST_DEL = -<span class="number">9</span>;	<span class="comment">// 删除状态</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 订单支持的状态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_EDIT = <span class="string">"修改"</span>；</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_VERIFY_PASS = <span class="string">"审核通过"</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_VERIFY_FAIL = <span class="string">"审核不通过"</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String AC_DELETE = <span class="string">"删除"</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> state;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 封装内部状态变更，调用者只需要关心，传入什么操作</span></span><br><span class="line">    <span class="comment">// switch case 比较适合，多态需要将状态分别创建类，并写各自的处理动作，每个状态类还需要一个如上述状态int值一一对应，复杂了，且代码约束和状态管理不如switch case</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 订单状态变更，返回结果不为空字符串说明操作失败</span></span><br><span class="line"><span class="comment">     *	，在Controller层应该返回类似 action+"操作失败"</span></span><br><span class="line"><span class="comment">     *	，如果为空，提示应该类似 action+"成功"</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">changeState</span><span class="params">(String action)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    	<span class="keyword">switch</span>(<span class="keyword">this</span>.state)</span><br><span class="line">        &#123;</span><br><span class="line">        	<span class="keyword">case</span> ST_DEL:</span><br><span class="line">            &#123;</span><br><span class="line">            	<span class="keyword">if</span>(AC_EDIT.equal(action))</span><br><span class="line">                &#123;</span><br><span class="line">					<span class="keyword">return</span> <span class="string">"无法修改已删除的订单"</span>;                </span><br><span class="line">                &#125;</span><br><span class="line">                ...</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">case</span> ST_FAIL:</span><br><span class="line">            &#123;</span><br><span class="line">            	<span class="keyword">if</span>(AC_EDIT.equal(action))</span><br><span class="line">                &#123;</span><br><span class="line">                	<span class="keyword">this</span>.state = ST_SUBMIT;<span class="comment">// 修改后还原为提交状态</span></span><br><span class="line">                &#125;</span><br><span class="line">                ...</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在平常的系统中针对动作接口，接口内判断状态，如果接口是精细到和上面代码一样的一一对应还好，如果接口是包含多个动作组合的，在每个接口独立的去判断状态来进行相应的改变，后期如果加上一个状态和一个动作，将变得不可维护。</p>
+<p>使用状态模式，符合了设计模式中的 迪米特法则（最小知道法则），设计系统时，应该尽量减少对象之间的交互，在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限。</p>
+<blockquote>
+<p>参考<br>游戏设计模式之三：<a href="https://blog.csdn.net/poem_qianmo/article/details/52824776" target="_blank" rel="noopener">https://blog.csdn.net/poem_qianmo/article/details/52824776</a> </p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/27/Java设计模式-状态机/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java进阶-锁和并发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/Java进阶-锁和并发/">Java进阶-锁和并发</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/Java进阶-锁和并发/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java并发和锁"><a href="#Java并发和锁" class="headerlink" title="Java并发和锁"></a>Java并发和锁</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>并发与并行：并行相互平行不关联，并发是对同一个资源交替操作</li>
+</ul>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>多线程调用下边代码，对a的递增，结果是不可预料的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		a++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>并发产生的条件：</p>
+<ol>
+<li>资源共享</li>
+<li>资源可修改</li>
+<li>多线程</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mybatis-spring-boot-starter</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>mapper层</li></ol>
+<p>并发为什么麻烦？并发需要考虑到哪些方面：<br></p>
         
-          <a class="article-more-a" href="/2019/04/03/spring-05-mabatis篇/#more">more >></a>
+          <a class="article-more-a" href="/2019/03/26/Java进阶-锁和并发/#more">more >></a>
         
       
 
@@ -724,7 +827,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
         		</li>
       		
 		</ul>
@@ -734,7 +837,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/03/spring-05-mabatis篇/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/26/Java进阶-锁和并发/">展开全文 >></a>
         </p>
       
 
@@ -764,31 +867,36 @@
 
 
   
-    <article id="post-spring-02-基础篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Java进阶-线程池" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/03/spring-02-基础篇/">spring-02-基础篇</a>
+      <a class="article-title" href="/2019/03/26/Java进阶-线程池/">Java进阶-线程池</a>
     </h1>
   
 
         
-        <a href="/2019/04/03/spring-02-基础篇/" class="archive-article-date">
-  	<time datetime="2019-04-03T13:12:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
+        <a href="/2019/03/26/Java进阶-线程池/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:53:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring - 基础"></a>Spring - 基础</h1><h2 id="新建项目和运行"><a href="#新建项目和运行" class="headerlink" title="新建项目和运行"></a>新建项目和运行</h2><p>在Idea中选择SpringBootInit中初始化，并选择插件WEB，即自动生成SpringBoot项目。<br>启动方式分三种：<br>​    1. 右键启动类运行<br>​    2. 命令行运行，<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn spring-boot:run;</span><br></pre></td></tr></table></figure></p>
-<p>​    3. 编译打包后用java命令运行，<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install; java -jar targe/aim.jar;</span><br></pre></td></tr></table></figure></p>
-<h2 id="基础的注解"><a href="#基础的注解" class="headerlink" title="基础的注解"></a>基础的注解</h2>
+        <h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><h2 id="为什么要使用线程池？线程池的好处"><a href="#为什么要使用线程池？线程池的好处" class="headerlink" title="为什么要使用线程池？线程池的好处"></a>为什么要使用线程池？线程池的好处</h2><p>1、使用new Thread()创建线程的弊端：</p>
+<p>•每次通过new Thread()创建对象性能不佳。</p>
+<p>•线程缺乏统一管理，可能无限制新建线程，相互之间竞争，及可能占用过多系统资源导致死机或oom。</p>
+<p>•缺乏更多功能，如定时执行、定期执行、线程中断。</p>
+<p>2、使用Java线程池的好处：</p>
+<p>•重用存在的线程，减少对象创建、消亡的开销，提升性能。</p>
+<p>•可有效控制最大并发线程数，提高系统资源的使用率，同时避免过多资源竞争，避免堵塞。</p>
+<p>•提供定时执行、定期执行、单线程、并发数控制等功能。</p>
         
-          <a class="article-more-a" href="/2019/04/03/spring-02-基础篇/#more">more >></a>
+          <a class="article-more-a" href="/2019/03/26/Java进阶-线程池/#more">more >></a>
         
       
 
@@ -802,7 +910,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线程池</a>
         		</li>
       		
 		</ul>
@@ -812,86 +920,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/03/spring-02-基础篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-spring-04-jpa篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/03/spring-04-jpa篇/">spring-04-jpa篇</a>
-    </h1>
-  
-
-        
-        <a href="/2019/04/03/spring-04-jpa篇/" class="archive-article-date">
-  	<time datetime="2019-04-03T13:12:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Spring-JPA"><a href="#Spring-JPA" class="headerlink" title="Spring - JPA"></a>Spring - JPA</h1><ol>
-<li>引入JPA依赖</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2019/04/03/spring-04-jpa篇/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/03/spring-04-jpa篇/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/03/26/Java进阶-线程池/">展开全文 >></a>
         </p>
       
 
@@ -1100,6 +1129,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">线程池</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">并发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
               </li>
             
             <div class="clearfix"></div>

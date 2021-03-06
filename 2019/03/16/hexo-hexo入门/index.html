@@ -1,48 +1,3 @@
-<<<<<<< HEAD
-const { Component } = require('inferno');
-const classname = require('hexo-component-inferno/lib/util/classname');
-const Head = require('./common/head');
-const Navbar = require('./common/navbar');
-const Widgets = require('./common/widgets');
-const Footer = require('./common/footer');
-const Scripts = require('./common/scripts');
-const Search = require('./common/search');
-
-module.exports = class extends Component {
-    render() {
-        const { site, config, page, helper, body } = this.props;
-
-        const language = page.lang || page.language || config.language;
-        const columnCount = Widgets.getColumnCount(config.widgets);
-
-        return <html lang={language ? language.substr(0, 2) : ''}>
-            <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-${columnCount}-column`}>
-                <Navbar config={config} helper={helper} page={page} />
-                <section class="section">
-                    <div class="container">
-                        <div class="columns">
-                            <div class={classname({
-                                column: true,
-                                'order-2': true,
-                                'column-main': true,
-                                'is-12': columnCount === 1,
-                                'is-8-tablet is-8-desktop is-8-widescreen': columnCount === 2,
-                                'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
-                            })} dangerouslySetInnerHTML={{ __html: body }}></div>
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'right'} />
-                        </div>
-                    </div>
-                </section>
-                <Footer config={config} helper={helper} />
-                <Scripts site={site} config={config} helper={helper} page={page} />
-                <Search config={config} helper={helper} />
-            </body>
-        </html>;
-    }
-};
-=======
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
@@ -51,15 +6,20 @@ module.exports = class extends Component {
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Cai7n 蔡柒&#39;s Blog</title>
+  <title>hexo-hexo入门 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="hexo入门安装 1.crul 安装NVM（node version mene）  curl https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh   2.NVM 下安装node.js  nvm install stable   3.node.js 的npm来安装hexo  npm install -g hexo-cli">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo-hexo入门">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/hexo-hexo入门/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
+<meta property="og:description" content="hexo入门安装 1.crul 安装NVM（node version mene）  curl https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh   2.NVM 下安装node.js  nvm install stable   3.node.js 的npm来安装hexo  npm install -g hexo-cli">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-29T13:01:13.663Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cai7n 蔡柒&#39;s Blog">
+<meta name="twitter:title" content="hexo-hexo入门">
+<meta name="twitter:description" content="hexo入门安装 1.crul 安装NVM（node version mene）  curl https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh   2.NVM 下安装node.js  nvm install stable   3.node.js 的npm来安装hexo  npm install -g hexo-cli">
   
     <link rel="alternative" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -195,405 +155,223 @@ module.exports = class extends Component {
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hexo-hexo入门" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo-hexo入门
+    </h1>
+  
+
+        
+        <a href="/2019/03/16/hexo-hexo入门/" class="archive-article-date">
+  	<time datetime="2019-03-16T14:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="hexo入门"><a href="#hexo入门" class="headerlink" title="hexo入门"></a>hexo入门</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>1.crul 安装NVM（node version mene）</p>
+<ul>
+<li>curl <a href="https://raw.github.com/creationix/nvm/v0.33.11/install.sh" target="_blank" rel="noopener">https://raw.github.com/creationix/nvm/v0.33.11/install.sh</a> | sh</li>
+</ul>
+</li>
+<li><p>2.NVM 下安装node.js</p>
+<ul>
+<li>nvm install stable</li>
+</ul>
+</li>
+<li><p>3.node.js 的npm来安装hexo</p>
+<ul>
+<li>npm install -g hexo-cli<a id="more"></a>
+</li>
+</ul>
+</li>
+</ul>
+<p>注意：如果npm安装hexo卡住，切换node.js源，命令：<br>npm config set registry <a href="http://registry.cnpmjs.org" target="_blank" rel="noopener">http://registry.cnpmjs.org</a><br>有任何返回即成功</p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><ul>
+<li><p>1.初始化： hexo init xxx.github.io</p>
+</li>
+<li><p>2.修改基本配置：/_config.yml</p>
+</li>
+<li><p>3.新增文章：hexo new {名字}，在/source/_post下</p>
+</li>
+<li><p>4.生成静态网页： hexo generate，在/public下</p>
+</li>
+<li><p>5.预览： hexo server</p>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/NIO-Socket和Java总结归纳/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:36:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/NIO-Socket和Java总结归纳/">NIO-Socket和Java总结归纳</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NIO</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/16/hexo-hexo入门/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/Java反射-动态代理/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:33:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/03/16/OP-maven学习/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OP-maven学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/27/Java基础-浮点数精确/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java基础-浮点数精确</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/Java反射-动态代理/">Java反射-动态代理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#hexo入门"><span class="toc-number">1.</span> <span class="toc-text">hexo入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单使用"><span class="toc-number">1.2.</span> <span class="toc-text">简单使用</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/Java反射-注解/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:31:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/Java反射-注解/">Java反射-注解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/17/OP-git使用/" class="archive-article-date">
-  	<time datetime="2019-08-17T08:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/17/OP-git使用/">OP-git使用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/17/数据库-隔离级别/" class="archive-article-date">
-  	<time datetime="2019-08-17T07:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/17/数据库-隔离级别/">数据库-隔离级别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/21/OP-http缓存/" class="archive-article-date">
-  	<time datetime="2019-04-21T14:53:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/21/OP-http缓存/">OP-http缓存</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/Java设计模式-装饰模式/" class="archive-article-date">
-  	<time datetime="2019-03-27T14:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/Java设计模式-装饰模式/">Java设计模式-装饰模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/Java设计模式-状态机/" class="archive-article-date">
-  	<time datetime="2019-03-27T13:43:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/Java设计模式-状态机/">Java设计模式-状态机</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/Java进阶-锁和并发/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/Java进阶-锁和并发/">Java进阶-锁和并发</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/Java进阶-线程池/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:53:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/Java进阶-线程池/">Java进阶-线程池</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线程池</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -637,8 +415,8 @@ module.exports = class extends Component {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -923,4 +701,3 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   </div>
 </body>
 </html>
->>>>>>> ded02f0e0d080198ef660153a325320f3b280c81

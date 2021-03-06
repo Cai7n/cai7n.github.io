@@ -1,48 +1,3 @@
-<<<<<<< HEAD
-const { Component } = require('inferno');
-const classname = require('hexo-component-inferno/lib/util/classname');
-const Head = require('./common/head');
-const Navbar = require('./common/navbar');
-const Widgets = require('./common/widgets');
-const Footer = require('./common/footer');
-const Scripts = require('./common/scripts');
-const Search = require('./common/search');
-
-module.exports = class extends Component {
-    render() {
-        const { site, config, page, helper, body } = this.props;
-
-        const language = page.lang || page.language || config.language;
-        const columnCount = Widgets.getColumnCount(config.widgets);
-
-        return <html lang={language ? language.substr(0, 2) : ''}>
-            <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-${columnCount}-column`}>
-                <Navbar config={config} helper={helper} page={page} />
-                <section class="section">
-                    <div class="container">
-                        <div class="columns">
-                            <div class={classname({
-                                column: true,
-                                'order-2': true,
-                                'column-main': true,
-                                'is-12': columnCount === 1,
-                                'is-8-tablet is-8-desktop is-8-widescreen': columnCount === 2,
-                                'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
-                            })} dangerouslySetInnerHTML={{ __html: body }}></div>
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'right'} />
-                        </div>
-                    </div>
-                </section>
-                <Footer config={config} helper={helper} />
-                <Scripts site={site} config={config} helper={helper} page={page} />
-                <Search config={config} helper={helper} />
-            </body>
-        </html>;
-    }
-};
-=======
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
@@ -51,11 +6,11 @@ module.exports = class extends Component {
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Cai7n 蔡柒&#39;s Blog</title>
+  <title>Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -197,402 +152,816 @@ module.exports = class extends Component {
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java基础-线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/26/Java基础-线程/">Java基础-线程</a>
+    </h1>
+  
+
+        
+        <a href="/2019/03/26/Java基础-线程/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:53:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java线程"><a href="#Java线程" class="headerlink" title="Java线程"></a>Java线程</h1><h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><p><img src="/2019/03/26/Java基础-线程/1.jpg" alt></p>
+<h2 id="Java线程使用"><a href="#Java线程使用" class="headerlink" title="Java线程使用"></a>Java线程使用</h2>
+        
+          <a class="article-more-a" href="/2019/03/26/Java基础-线程/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/NIO-Socket和Java总结归纳/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:36:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/NIO-Socket和Java总结归纳/">NIO-Socket和Java总结归纳</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NIO</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/Java基础-线程/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/Java反射-动态代理/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:33:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础-HashMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/Java反射-动态代理/">Java反射-动态代理</a>
+      <a class="article-title" href="/2019/03/26/Java基础-HashMap/">Java基础-HashMap</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/26/Java基础-HashMap/" class="archive-article-date">
+  	<time datetime="2019-03-26T01:29:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>链表为元素的数组。put的时候计算key的hash值放入数组索引，新建链表或头插到链表。get的时候，计算hash，遍历链表。</p>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>HashMap的初始长度是16，对应二进制1111；为的是将取模操作简化成更高效的与运算，直接取key hash值的二进制后四位作为索引，且后四位的值都用到了。<br>同理，每次扩容都X2，与运算多取一位数。</p>
+<p>扩容：HashMap.Size &gt; Capacity * LoadFactor</p>
+<p>参考</p>
+<blockquote>
+<p>漫画：hashmap</p>
+<p><a href="https://juejin.im/post/5a215783f265da431d3c7bba" target="_blank" rel="noopener">https://juejin.im/post/5a215783f265da431d3c7bba</a></p>
+<p>漫画：高并发下的hashmap</p>
+<p><a href="https://juejin.im/post/5a224e1551882535c56cb940" target="_blank" rel="noopener">https://juejin.im/post/5a224e1551882535c56cb940</a></p>
+<p>HashMap在android和java中的不同实现</p>
+<p><a href="http://guilunlv.farbox.com/post/internship_baoer/hashmapzai-androidhe-javazhong-bu-tong-de-shi-xian-xi-jie" target="_blank" rel="noopener">http://guilunlv.farbox.com/post/internship_baoer/hashmapzai-androidhe-javazhong-bu-tong-de-shi-xian-xi-jie</a></p>
+<p>西电：HashMap</p>
+<p><a href="http://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/" target="_blank" rel="noopener">http://yikun.github.io/2015/04/01/Java-HashMap%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%8F%8A%E5%AE%9E%E7%8E%B0/</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java反射</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/Java基础-HashMap/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/Java反射-注解/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:31:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-OP-缓存过期策略" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/Java反射-注解/">Java反射-注解</a>
+      <a class="article-title" href="/2019/03/26/OP-缓存过期策略/">OP-缓存过期策略</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/26/OP-缓存过期策略/" class="archive-article-date">
+  	<time datetime="2019-03-26T00:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="缓存过期策略"><a href="#缓存过期策略" class="headerlink" title="缓存过期策略"></a>缓存过期策略</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="1-FIFO-先进先出"><a href="#1-FIFO-先进先出" class="headerlink" title="1. FIFO 先进先出"></a>1. FIFO 先进先出</h3><p>最老的数据，最先淘汰；</p>
+<p>实现：循环队列（固定大小的数组），插满的时候，移除掉队首的值。<br>或者双向链表，加技术指示标志。</p>
+<p>但这两种方法，在取值上得遍历一遍。</p>
+<h3 id="2-LRU-淘汰最老的数据"><a href="#2-LRU-淘汰最老的数据" class="headerlink" title="2. LRU 淘汰最老的数据"></a>2. LRU 淘汰最老的数据</h3><p>和FIFO类似，不同的是，FIFO是进入时间最晚的淘汰，LRU是累计使用下来最晚的数据被淘汰。取key的时候，如在链表中存在，则取到队首，不存在则加到队首淘汰队尾</p>
+<p>实现：链表实现</p>
+<h3 id="3-LFU-淘汰最少使用次数的值"><a href="#3-LFU-淘汰最少使用次数的值" class="headerlink" title="3. LFU 淘汰最少使用次数的值"></a>3. LFU 淘汰最少使用次数的值</h3><p>实现：key和计数器绑定，建立最大堆，取key的时候命中，则+1，上浮，未命中加到尾部，满了则抛弃。</p>
+<blockquote>
+<p>参考<br>详解三种缓存过期策略LFU，FIFO，LRU：<a href="https://www.cnblogs.com/s-b-b/p/6047954.html" target="_blank" rel="noopener">https://www.cnblogs.com/s-b-b/p/6047954.html</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java反射</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/26/OP-缓存过期策略/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/17/OP-git使用/" class="archive-article-date">
-  	<time datetime="2019-08-17T08:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-OP-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/17/OP-git使用/">OP-git使用</a>
+      <a class="article-title" href="/2019/03/25/OP-正则表达式/">OP-正则表达式</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/25/OP-正则表达式/" class="archive-article-date">
+  	<time datetime="2019-03-25T13:23:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="示意图"><a href="#示意图" class="headerlink" title="示意图"></a>示意图</h2><p><img src="/2019/03/25/OP-正则表达式/1.png" alt></p>
+<h2 id="1-元字符"><a href="#1-元字符" class="headerlink" title="1. 元字符"></a>1. 元字符</h2><p>[0-9a-z]<br>[)-]<br>[]<br>\d //digital<br>\w //word<br>\s //space<br>. //“\n” 之外的任何单个字符</p>
+<h2 id="2-数量"><a href="#2-数量" class="headerlink" title="2. 数量"></a>2. 数量</h2><p>?<br>+<br>*<br>{2,9}</p>
+<h2 id="附加-glob模式"><a href="#附加-glob模式" class="headerlink" title="附加. glob模式"></a>附加. glob模式</h2><p>* 匹配任意 0 或多个任意字符<br>? 匹配任意一个字符<br>[…] 若字符在中括号中，则匹配。若以 ! 或 ^ 开头，若字符不在中括号中，则匹配<br>!(pattern|pattern|pattern) 不满足括号中的所有模式则匹配<br>?(pattern|pattern|pattern) 满足 0 或 1 括号中的模式则匹配<br>+(pattern|pattern|pattern) 满足 1 或 更多括号中的模式则匹配<br><em>(a|b|c) 满足 0 或 更多括号中的模式则匹配<br>@(pattern|pat</em>|pat?erN) 满足 1 个括号中的模式则匹配<br>*<em> 跨路径匹配任意字符 (lib/</em>/.js,lib下任意所有的js文件)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">正则</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/25/OP-正则表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/17/数据库-隔离级别/" class="archive-article-date">
-  	<time datetime="2019-08-17T07:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jvm-配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/17/数据库-隔离级别/">数据库-隔离级别</a>
+      <a class="article-title" href="/2019/03/23/jvm-配置/">jvm-配置</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/23/jvm-配置/" class="archive-article-date">
+  	<time datetime="2019-03-23T00:49:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JVM配置"><a href="#JVM配置" class="headerlink" title="JVM配置"></a>JVM配置</h1><h2 id="经典配置"><a href="#经典配置" class="headerlink" title="经典配置"></a>经典配置</h2><p>TODO 待测试</p>
+<blockquote>
+<p>参考<br>jvm参数详细：<a href="https://blog.csdn.net/xiajian2010/article/details/17376157" target="_blank" rel="noopener">https://blog.csdn.net/xiajian2010/article/details/17376157</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jvm</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/23/jvm-配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/21/OP-http缓存/" class="archive-article-date">
-  	<time datetime="2019-04-21T14:53:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础-关于异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/21/OP-http缓存/">OP-http缓存</a>
+      <a class="article-title" href="/2019/03/21/Java基础-关于异常/">Java基础-关于异常</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/21/Java基础-关于异常/" class="archive-article-date">
+  	<time datetime="2019-03-21T15:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java异常"><a href="#Java异常" class="headerlink" title="Java异常"></a>Java异常</h1><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p><img src="/2019/03/21/Java基础-关于异常/1.jpg" alt></p>
+<h2 id="Error-和-Exception"><a href="#Error-和-Exception" class="headerlink" title="Error 和 Exception"></a>Error 和 Exception</h2><p>Error是错误，Exception是异常，错误不可恢复，异常可以补救。</p>
+<h2 id="Checked-Exception-和-Unchecked-Exception"><a href="#Checked-Exception-和-Unchecked-Exception" class="headerlink" title="Checked Exception 和 Unchecked Exception"></a>Checked Exception 和 Unchecked Exception</h2><p>Checked Exception必须try catch或throws ，编译阶段会检查<br>Unchecked Exception，像nullpoint，数组越界，编译阶段不会检查，运行中可能出现，可能不出现的异常，可以避免。等于RuntimeException？</p>
+<blockquote>
+<p>参考<br>捕获时机：<a href="https://blog.csdn.net/miracle_8/article/details/78285940" target="_blank" rel="noopener">https://blog.csdn.net/miracle_8/article/details/78285940</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/21/Java基础-关于异常/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/Java设计模式-装饰模式/" class="archive-article-date">
-  	<time datetime="2019-03-27T14:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java基础-深浅拷贝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/Java设计模式-装饰模式/">Java设计模式-装饰模式</a>
+      <a class="article-title" href="/2019/03/18/Java基础-深浅拷贝/">Java基础-深浅拷贝</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/18/Java基础-深浅拷贝/" class="archive-article-date">
+  	<time datetime="2019-03-18T10:44:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h1><p>业务上更新一条对象，希望比较更新前后字段的不同，打印出差量并记录。对象有个修改日期是Date类型，照理说调用原对象的clone()方法，Date类型的字段在拷贝后的对象中只是保存了和原对象一样的引用地址，这样，如果拷贝的对象更新了修改日期字段，原对象的字段也会被更新，但事实结果却相反。<br>更新其中的Date字段，并不会影响另外一个。<br>尝试了自定义的非基本类型，加入到User字段中，依然是互不影响。<br>后续考虑在低版本的1.5或1.6的jdk上尝试。</p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CopyTest</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> CloneNotSupportedException, InterruptedException </span>&#123;</span><br><span class="line">		Date now = <span class="keyword">new</span> Date();</span><br><span class="line">		User u = <span class="keyword">new</span> User();</span><br><span class="line">		u.date = now;</span><br><span class="line">		User u2 = (User) u.clone();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打印更新前两对象</span></span><br><span class="line">		System.out.println(System.identityHashCode(u.date));    </span><br><span class="line">		System.out.println(System.identityHashCode(u2.date));</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 更新其中一个的日期</span></span><br><span class="line">		Thread.sleep(<span class="number">1000</span>);</span><br><span class="line"><span class="comment">//		u2.date = new Date();</span></span><br><span class="line">		u.date = <span class="keyword">new</span> Date();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 打印更新后的两对象日期字段</span></span><br><span class="line">		System.out.println(<span class="string">"after"</span>);</span><br><span class="line">        System.out.println(System.identityHashCode(u.date));</span><br><span class="line">		System.out.println(System.identityHashCode(u2.date));</span><br><span class="line">		System.out.println(u.date.getTime());</span><br><span class="line">		System.out.println(u2.date.getTime());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  用户bean</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">implements</span> <span class="title">Clonable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    Date date;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;  </span><br><span class="line">        User c =  (User) <span class="keyword">super</span>.clone();  </span><br><span class="line"><span class="comment">//        if(c.date!=null)</span></span><br><span class="line"><span class="comment">//        	c.date = (Date) c.date.clone();</span></span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/03/18/Java基础-深浅拷贝/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java基础</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/18/Java基础-深浅拷贝/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/Java设计模式-状态机/" class="archive-article-date">
-  	<time datetime="2019-03-27T13:43:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo-hexo博客完善" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/Java设计模式-状态机/">Java设计模式-状态机</a>
+      <a class="article-title" href="/2019/03/16/hexo-hexo博客完善/">hexo-hexo博客完善</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/16/hexo-hexo博客完善/" class="archive-article-date">
+  	<time datetime="2019-03-16T15:54:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="hexo博客完善"><a href="#hexo博客完善" class="headerlink" title="hexo博客完善"></a>hexo博客完善</h1><h2 id="待完善"><a href="#待完善" class="headerlink" title="待完善"></a>待完善</h2><h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><ul>
+<li>标签分类文章</li>
+</ul>
+<p>修改MD头信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: title</span><br><span class="line">tag:</span><br><span class="line">- tag1              # 新增标签tag1</span><br><span class="line">- tag2              # 新增标签tag2</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2019/03/16/hexo-hexo博客完善/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/16/hexo-hexo博客完善/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/Java进阶-锁和并发/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-OP-maven学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/Java进阶-锁和并发/">Java进阶-锁和并发</a>
+      <a class="article-title" href="/2019/03/16/OP-maven学习/">OP-maven学习</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/16/OP-maven学习/" class="archive-article-date">
+  	<time datetime="2019-03-16T15:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="maven学习"><a href="#maven学习" class="headerlink" title="maven学习"></a>maven学习</h1><h2 id="待完善"><a href="#待完善" class="headerlink" title="待完善"></a>待完善</h2><ul>
+<li>scope 和 条件编译</li>
+<li>依赖范围、依赖传递</li>
+<li>POM</li>
+<li>命令</li>
+<li>部署Tomcat，打包war包或者命令</li>
+</ul>
+        
+          <a class="article-more-a" href="/2019/03/16/OP-maven学习/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">maven</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/16/OP-maven学习/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/Java进阶-线程池/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:53:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hexo-hexo入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/Java进阶-线程池/">Java进阶-线程池</a>
+      <a class="article-title" href="/2019/03/16/hexo-hexo入门/">hexo-hexo入门</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/16/hexo-hexo入门/" class="archive-article-date">
+  	<time datetime="2019-03-16T14:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="hexo入门"><a href="#hexo入门" class="headerlink" title="hexo入门"></a>hexo入门</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>1.crul 安装NVM（node version mene）</p>
+<ul>
+<li>curl <a href="https://raw.github.com/creationix/nvm/v0.33.11/install.sh" target="_blank" rel="noopener">https://raw.github.com/creationix/nvm/v0.33.11/install.sh</a> | sh</li>
+</ul>
+</li>
+<li><p>2.NVM 下安装node.js</p>
+<ul>
+<li>nvm install stable</li>
+</ul>
+</li>
+<li><p>3.node.js 的npm来安装hexo</p>
+<ul>
+<li>npm install -g hexo-cli</li></ul></li></ul>
+        
+          <a class="article-more-a" href="/2019/03/16/hexo-hexo入门/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线程池</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/03/16/hexo-hexo入门/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -636,9 +1005,9 @@ module.exports = class extends Component {
 <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -923,4 +1292,3 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   </div>
 </body>
 </html>
->>>>>>> ded02f0e0d080198ef660153a325320f3b280c81

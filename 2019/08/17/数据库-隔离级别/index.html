@@ -1,48 +1,3 @@
-<<<<<<< HEAD
-const { Component } = require('inferno');
-const classname = require('hexo-component-inferno/lib/util/classname');
-const Head = require('./common/head');
-const Navbar = require('./common/navbar');
-const Widgets = require('./common/widgets');
-const Footer = require('./common/footer');
-const Scripts = require('./common/scripts');
-const Search = require('./common/search');
-
-module.exports = class extends Component {
-    render() {
-        const { site, config, page, helper, body } = this.props;
-
-        const language = page.lang || page.language || config.language;
-        const columnCount = Widgets.getColumnCount(config.widgets);
-
-        return <html lang={language ? language.substr(0, 2) : ''}>
-            <Head site={site} config={config} helper={helper} page={page} />
-            <body class={`is-${columnCount}-column`}>
-                <Navbar config={config} helper={helper} page={page} />
-                <section class="section">
-                    <div class="container">
-                        <div class="columns">
-                            <div class={classname({
-                                column: true,
-                                'order-2': true,
-                                'column-main': true,
-                                'is-12': columnCount === 1,
-                                'is-8-tablet is-8-desktop is-8-widescreen': columnCount === 2,
-                                'is-8-tablet is-8-desktop is-6-widescreen': columnCount === 3
-                            })} dangerouslySetInnerHTML={{ __html: body }}></div>
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'left'} />
-                            <Widgets site={site} config={config} helper={helper} page={page} position={'right'} />
-                        </div>
-                    </div>
-                </section>
-                <Footer config={config} helper={helper} />
-                <Scripts site={site} config={config} helper={helper} page={page} />
-                <Search config={config} helper={helper} />
-            </body>
-        </html>;
-    }
-};
-=======
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
@@ -51,15 +6,20 @@ module.exports = class extends Component {
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Cai7n 蔡柒&#39;s Blog</title>
+  <title>数据库-隔离级别 | Cai7n 蔡柒&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Cai7n 蔡柒&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="隔离级别 read uncommited  无锁，写的同时可以读  read commited  写的时候加锁，读阻塞">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库-隔离级别">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/数据库-隔离级别/index.html">
 <meta property="og:site_name" content="Cai7n 蔡柒&#39;s Blog">
+<meta property="og:description" content="隔离级别 read uncommited  无锁，写的同时可以读  read commited  写的时候加锁，读阻塞">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-28T08:31:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cai7n 蔡柒&#39;s Blog">
+<meta name="twitter:title" content="数据库-隔离级别">
+<meta name="twitter:description" content="隔离级别 read uncommited  无锁，写的同时可以读  read commited  写的时候加锁，读阻塞">
   
     <link rel="alternative" href="/atom.xml" title="Cai7n 蔡柒&#39;s Blog" type="application/atom+xml">
   
@@ -195,188 +155,118 @@ module.exports = class extends Component {
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据库-隔离级别" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/NIO-Socket和Java总结归纳/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:36:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/NIO-Socket和Java总结归纳/">NIO-Socket和Java总结归纳</a>
+    <h1 class="article-title" itemprop="name">
+      数据库-隔离级别
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">NIO</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/Java反射-动态代理/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:33:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/Java反射-动态代理/">Java反射-动态代理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/Java反射-注解/" class="archive-article-date">
-  	<time datetime="2019-08-28T15:31:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/Java反射-注解/">Java反射-注解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Java反射</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/17/OP-git使用/" class="archive-article-date">
-  	<time datetime="2019-08-17T08:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/17/OP-git使用/">OP-git使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/17/数据库-隔离级别/" class="archive-article-date">
+        
+        <a href="/2019/08/17/数据库-隔离级别/" class="archive-article-date">
   	<time datetime="2019-08-17T07:12:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/17/数据库-隔离级别/">数据库-隔离级别</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h1><ul>
+<li>read uncommited</li>
+</ul>
+<p>无锁，写的同时可以读</p>
+<ul>
+<li>read commited</li>
+</ul>
+<p>写的时候加锁，读阻塞</p>
+<a id="more"></a>
+<ul>
+<li>repeatable reads</li>
+</ul>
+<p>可重复读，重复读的结果相同。两次读加锁，阻塞写入。或者MVCC，读版本快照，写操作在另外的版本上，等读结束更新，快照隔离使得事物看到它启动时的数据状态。</p>
+<ul>
+<li>serializable(可串行化)</li>
+</ul>
+<p>要求在选定对象上的读锁和写锁保持直到事务结束后才能释放。范围锁，适用于幻读（不可重复读的多条记录下的情况）</p>
+<blockquote>
+<p>可序列化（Serializable）隔离级别不等同于可串行化（Serializable）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">隔离级别l</th>
+<th style="text-align:center">写操作</th>
+<th style="text-align:center">读操作</th>
+<th style="text-align:center">范围操作 (…where…)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">未提交读</td>
+<td style="text-align:center">S</td>
+<td style="text-align:center">S</td>
+<td style="text-align:center">S</td>
+</tr>
+<tr>
+<td style="text-align:center">提交读</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">S</td>
+<td style="text-align:center">S</td>
+</tr>
+<tr>
+<td style="text-align:center">可重复读</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">S</td>
+</tr>
+<tr>
+<td style="text-align:center">可序列化</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">C</td>
+<td style="text-align:center">C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>“C”</strong>-表示锁会持续到事务提交。 <strong>“S”</strong> –表示锁持续到当前语句执行完毕。</p>
+<p>参考：<a href="https://zh.wikipedia.org/wiki/事務隔離" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E4%BA%8B%E5%8B%99%E9%9A%94%E9%9B%A2</a></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -388,212 +278,127 @@ module.exports = class extends Component {
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/17/数据库-隔离级别/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/04/21/OP-http缓存/" class="archive-article-date">
-  	<time datetime="2019-04-21T14:53:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-21</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/08/17/OP-git使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OP-git使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/21/OP-http缓存/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OP-http缓存</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/21/OP-http缓存/">OP-http缓存</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#隔离级别"><span class="toc-number">1.</span> <span class="toc-text">隔离级别</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/Java设计模式-装饰模式/" class="archive-article-date">
-  	<time datetime="2019-03-27T14:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/Java设计模式-装饰模式/">Java设计模式-装饰模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/27/Java设计模式-状态机/" class="archive-article-date">
-  	<time datetime="2019-03-27T13:43:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/27/Java设计模式-状态机/">Java设计模式-状态机</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/Java进阶-锁和并发/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/Java进阶-锁和并发/">Java进阶-锁和并发</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">并发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/26/Java进阶-线程池/" class="archive-article-date">
-  	<time datetime="2019-03-26T01:53:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/26/Java进阶-线程池/">Java进阶-线程池</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">线程池</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -637,8 +442,8 @@ module.exports = class extends Component {
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -923,4 +728,3 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
   </div>
 </body>
 </html>
->>>>>>> ded02f0e0d080198ef660153a325320f3b280c81

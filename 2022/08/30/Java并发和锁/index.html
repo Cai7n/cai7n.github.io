@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java并发和锁 | TAO&#39;</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="并发和并行概念并行相互平行不关联，并发是对同一个资源交替操作 并发多线程调用下边代码，对a的递增，结果是不可预料的。 1234567int a &#x3D; 1;Thread thread &#x3D; new Thread(new Runnable()&amp;#123;    @Override    public void run() &amp;#123;		a++;    &amp;#125;&amp;#125;);  产生条件：  资源共">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java并发和锁">
+<meta property="og:url" content="https://cai7n.github.io/2022/08/30/Java%E5%B9%B6%E5%8F%91%E5%92%8C%E9%94%81/index.html">
+<meta property="og:site_name" content="TAO&#39;">
+<meta property="og:description" content="并发和并行概念并行相互平行不关联，并发是对同一个资源交替操作 并发多线程调用下边代码，对a的递增，结果是不可预料的。 1234567int a &#x3D; 1;Thread thread &#x3D; new Thread(new Runnable()&amp;#123;    @Override    public void run() &amp;#123;		a++;    &amp;#125;&amp;#125;);  产生条件：  资源共">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cai7n.github.io/2022/08/30/Java%E5%B9%B6%E5%8F%91%E5%92%8C%E9%94%81/1.jpg">
+<meta property="article:published_time" content="2022-08-30T11:21:16.000Z">
+<meta property="article:modified_time" content="2022-08-30T11:25:23.811Z">
+<meta property="article:author" content="Cai7n">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cai7n.github.io/2022/08/30/Java%E5%B9%B6%E5%8F%91%E5%92%8C%E9%94%81/1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="TAO&#39;" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">TAO&#39;</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/">about</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Java并发和锁" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java并发和锁
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="并发和并行概念"><a href="#并发和并行概念" class="headerlink" title="并发和并行概念"></a>并发和并行概念</h2><p>并行相互平行不关联，并发是对同一个资源交替操作</p>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><p>多线程调用下边代码，对a的递增，结果是不可预料的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		a++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>产生条件：</p>
+<ol>
+<li>资源共享</li>
+<li>资源可修改</li>
+<li>多线程</li>
+</ol>
+<p>并发为什么麻烦？并发需要考虑到哪些方面：</p>
+<span id="more"></span>
+
+<ol>
+<li>竞态条件：</li>
+<li>非原子操作</li>
+<li>指令重排：比如int a;int b; 在线程A中先后对ab赋值，在线程B中对b判断是否改变，不能确定a已经改变。</li>
+<li>可见性：通过volatile，可以使变量更新可见，且对64位值的赋值变为原子操作</li>
+<li>死锁，活锁，饥饿：死锁通常是锁定对象的调用顺序不对造成的，需要改变锁定对象的顺序</li>
+</ol>
+<p>从另外的角度来考虑：<br>需要考虑线程的安全性（结果正确）的同时，考虑性能同时保证活跃性（比如非公平锁）</p>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><ol>
+<li>Synchronized</li>
+</ol>
+<p><img src="1.jpg"></p>
+<ol start="2">
+<li>CAS 非阻塞同步</li>
+</ol>
+<p>​    CAS比较交换的过程可以通俗的理解为CAS(V,O,N)，包含三个值分别为：V 内存地址存放的实际值；O 预期的值（旧值）；N 更新的新值。</p>
+<p>​    CAS非阻塞同步存在的问题：1. ABA问题 2. 自旋过长 3. 多个变量就失效</p>
+<blockquote>
+<p>volatile详解：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/dolphin0520/p/3920373.html">https://www.cnblogs.com/dolphin0520/p/3920373.html</a><br>自旋锁，重入，公平和改进的公平锁等实现：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015795906">https://segmentfault.com/a/1190000015795906</a><br>美团，锁事：<a target="_blank" rel="noopener" href="https://tech.meituan.com/2018/11/15/java-lock.html">https://tech.meituan.com/2018/11/15/java-lock.html</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cai7n.github.io/2022/08/30/Java%E5%B9%B6%E5%8F%91%E5%92%8C%E9%94%81/" data-id="cl7g3peds0000g2npgsv6c6c1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/30/%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          缓存策略
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/30/HashMap%E6%B3%A8%E6%84%8F%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">HashMap注意点</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Cai7n<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

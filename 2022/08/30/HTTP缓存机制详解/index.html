@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HTTP缓存机制详解 | TAO&#39;</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTP缓存不熟悉，经常会遇到莫名的异常状况。 HeaderPragma1Pragma: no-cache 由Cache-Control 替代。 Expires &#x2F; Cache-Control">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP缓存机制详解">
+<meta property="og:url" content="https://cai7n.github.io/2022/08/30/HTTP%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="TAO&#39;">
+<meta property="og:description" content="HTTP缓存不熟悉，经常会遇到莫名的异常状况。 HeaderPragma1Pragma: no-cache 由Cache-Control 替代。 Expires &#x2F; Cache-Control">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-30T11:35:48.000Z">
+<meta property="article:modified_time" content="2022-08-30T11:37:27.318Z">
+<meta property="article:author" content="Cai7n">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TAO&#39;" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">TAO&#39;</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about/">about</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-HTTP缓存机制详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTTP缓存机制详解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP缓存不熟悉，经常会遇到莫名的异常状况。</p>
+<h2 id="Header"><a href="#Header" class="headerlink" title="Header"></a>Header</h2><h3 id="Pragma"><a href="#Pragma" class="headerlink" title="Pragma"></a>Pragma</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Pragma: no-cache</span><br></pre></td></tr></table></figure>
+<p>由Cache-Control 替代。</p>
+<h3 id="Expires-Cache-Control"><a href="#Expires-Cache-Control" class="headerlink" title="Expires / Cache-Control"></a>Expires / Cache-Control</h3><span id="more"></span>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Expires: Wed, 21 Oct 2017 07:28:00 GMT</span><br><span class="line">Cache-Control: max-age&#x3D;30</span><br></pre></td></tr></table></figure>
+<p>Expires跟Cache-Control: max-age決定這份快取的「新鮮度」，也就是什麼時候「過期」。在過期之前，瀏覽器「不會」發送出任何 Request。</p>
+<h3 id="If-Modified-Since-If-None-Match"><a href="#If-Modified-Since-If-None-Match" class="headerlink" title="If-Modified-Since / If-None-Match"></a>If-Modified-Since / If-None-Match</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;logo.png:</span><br><span class="line"></span><br><span class="line">If-Modified-Since: 2017-01-01 13:00:00</span><br><span class="line">If-None-Match: 1234</span><br></pre></td></tr></table></figure>
+<p>Etag跟If-None-Match也是搭配使用的一對，就像Last-Modified跟If-Modified-Since一樣。Etag跟If-None-Match也是搭配使用的一對，就像Last-Modified跟If-Modified-Since一樣。</p>
+<h3 id="no-store-VS-no-cache"><a href="#no-store-VS-no-cache" class="headerlink" title="no-store VS no-cache"></a>no-store VS no-cache</h3><p>Control-Control中no-cache表示需要请求服务器，判断版本决定是否用缓存。<br>Control-Control中no-store表示总是请求服务器。</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>Cache-Control: max-age=0  和  no-cache的区别？</li>
+</ul>
+<p>max-age=0总是获取最新版本，no-cache应该是需要浏览器发送ETAG给服务器来检查是否需要重新缓存。</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/1046966/whats-the-difference-between-cache-control-max-age-0-and-no-cache">https://stackoverflow.com/questions/1046966/whats-the-difference-between-cache-control-max-age-0-and-no-cache</a></p>
+<ul>
+<li>同时使用If-Modified-Since和If-None-Match？</li>
+</ul>
+<p>if-none-match优先，因为比较新，且准确。</p>
+<p>A recipient must ignore If-Modified-Since if the request contains an If-None-Match header field; </p>
+<ul>
+<li>304是针对哪个header标签的反馈？</li>
+</ul>
+<p>在没有设置Cache-Contral的情况下，设置Last-Modified和ETag缓存，会出现时而200（from cache），时而304 出现的情况。</p>
+<p>chrome 测试 刷新 和 输入URL回车 测试并不会影响200（from cache）和304 的出现。</p>
+<p>可能的情况，是在服务器没有设置显示缓存时间的情况下，freshness_lifetime是浏览器按某种算法计算出来，这个时间并不长，所以会出现这种情况。</p>
+<p>设置Cache-Contral max-age的情况下，max-age过期后首次刷新会出现304(如果有更新内容，则是200)，之后在max-age缓存过期之前刷新都是200（from cache）。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.im/entry/58ba3302570c350062124f68">https://juejin.im/entry/58ba3302570c350062124f68</a></p>
+<ul>
+<li>ETAG分布式下的计算不同？</li>
+</ul>
+<ul>
+<li>no-cache 和 if-none-match的区别？两者是否都是校验ETAG?</li>
+</ul>
+<p>no-cache表示此请求或响应不能被缓存。在释放缓存的副本之前，强制将请求提交到源服务器进行验证（单不一定被下载）。</p>
+<p>no-cache 表示必须先与服务器确认返回的响应是否被更改，然后才能使用该响应来满足后续对同一个网址的请求。因此，如果存在合适的验证令牌 (ETag)，no-cache 会发起往返通信来验证缓存的响应，如果资源未被更改，可以避免下载。</p>
+<p>两者都是ETAG校验，no-cache没有显示传递ETAG? no-cache是多次往返校验？</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>循序漸進理解 HTTP Cache 機制<br><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2017/06/17/cache-introduction/">https://blog.techbridge.cc/2017/06/17/cache-introduction/</a><br>写给后端程序员的HTTP缓存原理介绍<br><a target="_blank" rel="noopener" href="http://zhaox.github.io/http/2016/01/04/http-cache-for-backend-programmers">http://zhaox.github.io/http/2016/01/04/http-cache-for-backend-programmers</a><br>Mozilla的HTTP手册（详细）<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://cai7n.github.io/2022/08/30/HTTP%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%E8%AF%A6%E8%A7%A3/" data-id="cl7g47pal0000r3np4t0u4r8r" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/08/30/%E6%AD%A3%E5%88%99%E7%AE%80%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">正则简笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 Cai7n<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
